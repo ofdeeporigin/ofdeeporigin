@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>of deep origin</title>
+  <meta name="description" content="of deep origin LLC" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 48px 56px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px 0 0;
+    }
+
+    h1 {
+      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+      font-size: clamp(80px, 14vw, 180px);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+    }
+
+    h1 em {
+    }
+    h1 span {
+      display: block;
+    }
+    .text-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .gradient-text, .black-text {
+      display: inline-block;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ff6b6b, #ff9f43, #f7ca18, #2ecc71, #3498db, #9b59b6, #e91e8c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 0;
+    }
+    .black-text {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      color: #0f0f0f;
+      z-index: 1;
+      user-select: none;
+    }
+
+    footer {
+      font-size: 11px;
+      font-weight: 300;
+      color: #cccccc;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>
+      <div class="text-wrapper">
+        <div class="black-text" aria-hidden="true">
+          <span style="padding-left: 0;">of</span>
+          <span style="padding-left: 0.5em;">deep</span>
+          <span style="padding-left: 1em;">origin</span>
+        </div>
+        <div class="gradient-text">
+          <span style="padding-left: 0;">of</span>
+          <span style="padding-left: 0.5em;">deep</span>
+          <span style="padding-left: 1em;">origin</span>
+        </div>
+      </div>
+    </h1>
+  </main>
+
+  <footer>© 2026 of deep origin LLC</footer>
+
+</body>
+</html>
