@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returning to balancebook…</title>
+  <meta name="theme-color" content="#f8f8f5" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f1720;
+      --body: #4d5966;
+      --muted: #6d7783;
+      --line: rgba(15, 23, 32, 0.1);
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --accent: #236846;
+      --shadow-sm: 0 6px 18px rgba(15, 23, 32, 0.05);
+      --shadow-md: 0 18px 44px rgba(15, 23, 32, 0.08);
+      --max: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #edf2f7;
+        --body: #b5c0cb;
+        --muted: #8f9baa;
+        --line: rgba(255, 255, 255, 0.1);
+        --surface: rgba(17, 24, 31, 0.82);
+        --surface-strong: rgba(20, 27, 34, 0.94);
+        --accent: #6abb8e;
+        --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 20px 52px rgba(0, 0, 0, 0.34);
+      }
+    }
+
+    html { color-scheme: light dark; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.24), transparent 34%),
+        linear-gradient(90deg, rgba(201, 92, 78, 0.09) 0%, rgba(248, 248, 245, 0) 42%, rgba(41, 113, 77, 0.09) 100%),
+        linear-gradient(180deg, #f6f4f1 0%, #f8f8f5 24%, #fbfbf9 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.18), transparent 32%),
+          radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(201, 92, 78, 0.07) 0%, rgba(13, 18, 23, 0) 42%, rgba(41, 113, 77, 0.07) 100%),
+          linear-gradient(180deg, #0d1217 0%, #10161c 24%, #121920 100%);
+      }
+    }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 14px 0;
+      background: linear-gradient(180deg, rgba(246, 244, 241, 0.82), rgba(248, 248, 245, 0.46));
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(15, 23, 32, 0.05);
+    }
+
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 12px 28px rgba(15, 23, 32, 0.08);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav {
+        background: linear-gradient(180deg, rgba(13, 18, 23, 0.84), rgba(13, 18, 23, 0.48));
+        border-bottom-color: rgba(255, 255, 255, 0.04);
+      }
+
+      .nav-inner {
+        background: linear-gradient(180deg, rgba(23, 31, 40, 0.9), rgba(18, 25, 32, 0.76));
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 16px 36px rgba(0, 0, 0, 0.26);
+      }
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      box-shadow: 0 8px 20px rgba(15, 23, 32, 0.1);
+    }
+
+    .back-link {
+      color: var(--body);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    main {
+      min-height: calc(100vh - 92px);
+      display: grid;
+      place-items: center;
+      padding: 40px 0 56px;
+    }
+
+    .redirect-card {
+      width: min(100%, 560px);
+      padding: 44px 32px;
+      text-align: center;
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .icon-wrap {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(15, 23, 32, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .icon-wrap {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    .icon-wrap img {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 17px;
+      color: var(--body);
+    }
+
+    .dots {
+      display: inline-flex;
+      gap: 6px;
+      margin-top: 24px;
+    }
+
+    .dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: 0.24;
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    .dots span:nth-child(2) { animation-delay: 0.15s; }
+    .dots span:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: 0.24; transform: scale(0.92); }
+      40% { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner { padding: 10px 14px; }
+      .redirect-card {
+        padding: 34px 22px;
+        border-radius: 24px;
+      }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>balancebook</span>
+      </a>
+      <a href="index.html" class="back-link">Back to site</a>
+    </div>
+  </nav>
+
+  <main class="shell">
+    <section class="redirect-card" aria-live="polite">
+      <div class="icon-wrap" aria-hidden="true">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+      </div>
+      <h1>Returning to balancebook…</h1>
+      <p>Please wait while we send you back to the app.</p>
+      <div class="dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
