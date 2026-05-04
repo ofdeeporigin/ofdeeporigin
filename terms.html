@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use — balancebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0f1720;
+      --body: #4d5966;
+      --muted: #6d7783;
+      --line: rgba(15, 23, 32, 0.1);
+      --line-soft: rgba(15, 23, 32, 0.06);
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --bg: #f8f8f5;
+      --accent: #236846;
+      --accent-soft: rgba(35, 104, 70, 0.08);
+      --shadow-sm: 0 6px 18px rgba(15, 23, 32, 0.05);
+      --shadow-md: 0 18px 44px rgba(15, 23, 32, 0.08);
+      --max: 1120px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #edf2f7;
+        --body: #b5c0cb;
+        --muted: #8f9baa;
+        --line: rgba(255, 255, 255, 0.1);
+        --line-soft: rgba(255, 255, 255, 0.06);
+        --surface: rgba(17, 24, 31, 0.82);
+        --surface-strong: rgba(20, 27, 34, 0.94);
+        --bg: #0d1217;
+        --accent: #6abb8e;
+        --accent-soft: rgba(106, 187, 142, 0.12);
+        --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 20px 52px rgba(0, 0, 0, 0.34);
+      }
+    }
+    html { color-scheme: light dark; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.24), transparent 34%),
+        linear-gradient(90deg, rgba(201, 92, 78, 0.09) 0%, rgba(248, 248, 245, 0) 42%, rgba(41, 113, 77, 0.09) 100%),
+        linear-gradient(180deg, #f6f4f1 0%, #f8f8f5 24%, #fbfbf9 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.18), transparent 32%),
+          radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(201, 92, 78, 0.07) 0%, rgba(13, 18, 23, 0) 42%, rgba(41, 113, 77, 0.07) 100%),
+          linear-gradient(180deg, #0d1217 0%, #10161c 24%, #121920 100%);
+      }
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: linear-gradient(180deg, rgba(246, 244, 241, 0.82), rgba(248, 248, 245, 0.46));
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(15, 23, 32, 0.05);
+    }
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 12px 28px rgba(15, 23, 32, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      nav {
+        background: linear-gradient(180deg, rgba(13, 18, 23, 0.84), rgba(13, 18, 23, 0.48));
+        border-bottom-color: rgba(255, 255, 255, 0.04);
+      }
+      .nav-inner {
+        background: linear-gradient(180deg, rgba(23, 31, 40, 0.9), rgba(18, 25, 32, 0.76));
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 16px 36px rgba(0, 0, 0, 0.26);
+      }
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      box-shadow: 0 8px 20px rgba(15, 23, 32, 0.1);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--ink); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 15px;
+      background: #0f1720;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(15, 23, 32, 0.14);
+    }
+    .nav-cta:hover { background: #1b2430; }
+    .legal-page {
+      padding: 48px 0 80px;
+    }
+    .legal-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 28px 80px;
+    }
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 {
+      font-size: clamp(34px, 4vw, 46px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.04;
+      margin-bottom: 14px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .section { margin-bottom: 48px; }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--body);
+      margin-bottom: 12px;
+      line-height: 1.75;
+    }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul, .section ol {
+      margin: 8px 0 12px;
+      padding-left: 20px;
+    }
+    .section li {
+      font-size: 15px;
+      color: var(--body);
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .section li strong { color: var(--ink); }
+    .section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .highlight-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(35, 104, 70, 0.16);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 6px 0 18px;
+    }
+    .highlight-box p {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .caps-block {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 14px 0 18px;
+    }
+    .caps-block p {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.72;
+      margin-bottom: 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      .caps-block { background: rgba(255, 255, 255, 0.02); }
+    }
+    footer {
+      padding: 0 0 28px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--line);
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-brand img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-links a:hover { color: var(--ink); }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .legal-page { padding: 28px 0 56px; }
+      .legal-card { border-radius: 24px; }
+      .content { padding: 34px 20px 56px; }
+      .page-header h1 { font-size: 30px; }
+      .section h2 { font-size: 19px; }
+      .footer-inner { padding-top: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>balancebook</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="shell">
+      <div class="legal-card">
+        <div class="content">
+
+    <div class="page-header">
+      <h1>Terms of Use</h1>
+      <div class="meta">
+        <span>Effective April 5, 2026</span>
+        <span>Last updated April 5, 2026</span>
+      </div>
+    </div>
+
+    <!-- Intro -->
+    <div class="section">
+      <p>These Terms of Use ("Terms") govern your access to and use of the balancebook mobile application (the "App") and all related services, features, and content provided by or through the App (collectively, the "Service"). The Service is provided by balancebook ("we," "us," or "our"). These Terms constitute a legally binding agreement between you and balancebook.</p>
+      <p>By downloading, installing, creating an account for, or otherwise accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety. If you do not agree to these Terms, you should not use the Service.</p>
+      <p>We reserve the right to revise these Terms from time to time. Any changes will be effective upon posting of the updated Terms. Your continued use of the Service following the posting of any changes constitutes your acceptance of the revised Terms. It is your responsibility to review these Terms periodically for changes.</p>
+    </div>
+
+    <!-- 1. Eligibility -->
+    <div class="section">
+      <h2>1. Eligibility</h2>
+      <p>Use of the Service is limited to individuals who are at least eighteen (18) years of age. By using the Service, you represent and warrant that you are at least eighteen (18) years of age and that you possess the legal capacity to enter into and be bound by a legally enforceable agreement.</p>
+      <p>If you are accessing or using the Service on behalf of a business, organization, or other legal entity, you further represent and warrant that you have the legal authority to bind that entity to these Terms, and that such entity agrees to be bound by these Terms. In such case, "you" and "your" as used in these Terms refer to both you and that entity jointly.</p>
+    </div>
+
+    <!-- 2. Account Registration -->
+    <div class="section">
+      <h2>2. Account Registration and Security</h2>
+      <p>Access to certain features of the Service requires you to create an account through Apple's Sign in with Apple authentication service. By creating an account, you agree to provide accurate, current, and complete information as prompted by the registration process, and to maintain and promptly update your information as necessary to keep it accurate, current, and complete.</p>
+      <p>You are solely responsible for maintaining the confidentiality and security of your Apple ID credentials and for all activity that occurs under or through your account, whether or not you authorized such activity. You agree to notify us promptly of any known or suspected unauthorized access to your account or any other breach of security through our <a href="support.html">support page</a>. We will not be liable for any loss or damage arising from your failure to comply with the requirements of this Section.</p>
+      <p>We reserve the right to refuse registration of, or to suspend or terminate, any account in our sole discretion, including but not limited to accounts that we believe have been created fraudulently, that are used in violation of these Terms, or that present a risk to the security or integrity of the Service or other users.</p>
+    </div>
+
+    <!-- 3. Description of Service -->
+    <div class="section">
+      <h2>3. Description of Service</h2>
+      <p>balancebook is a personal finance tracking application designed for use on Apple iOS devices. The Service allows users to record, categorize, and review personal income and expenses. The Service currently includes the following features:</p>
+      <ul>
+        <li>Manual entry of income and expense transactions, including categorization, tagging, and notation</li>
+        <li>Budget creation, tracking, and management, including recurring budget templates</li>
+        <li>Optional connectivity to bank accounts and financial institutions for automatic transaction import, provided through our third-party bank connection partner as described in Section 7</li>
+        <li>Shared ledger functionality allowing users to collaborate on a common ledger (available on paid subscription plans)</li>
+        <li>Home screen widget extensions for at-a-glance financial summaries</li>
+      </ul>
+      <p>The Service is made available for personal, non-commercial use only. Any use of the Service for commercial, business, or revenue-generating purposes is expressly prohibited without our prior written consent. We reserve the right to modify, expand, discontinue, or otherwise alter any feature or aspect of the Service at any time and without prior notice.</p>
+    </div>
+
+    <!-- 4. Subscription Plans and Payments -->
+    <div class="section">
+      <h2>4. Subscription Plans and Payments</h2>
+
+      <h3>4.1 Plan Tiers</h3>
+      <p>The Service is offered under multiple plan tiers, including a free Basic plan and a paid Pro subscription plan. The specific features available under each plan tier, and any applicable limitations on the Basic plan, are described within the App and on our website. We reserve the right to modify plan features and pricing at any time, subject to applicable notice requirements.</p>
+
+      <h3>4.2 Payment Processing Through Apple</h3>
+      <p>All payments for paid subscription plans are processed exclusively through Apple's in-app purchase system. By subscribing to a paid plan, you agree to be bound by Apple's applicable payment terms, policies, and end user license agreement. We do not receive, collect, or store your payment card or financial account information. All billing and payment disputes must be directed to Apple in accordance with Apple's policies.</p>
+
+      <h3>4.3 Automatic Renewal and Cancellation</h3>
+      <p>Paid subscriptions are offered on a recurring basis and will automatically renew at the end of each billing period unless cancelled. Your Apple ID account will be charged for renewal within twenty-four (24) hours prior to the end of the current billing period. To cancel your subscription and prevent automatic renewal, you must do so through your Apple ID account settings at least twenty-four (24) hours before the end of the then-current billing period. Cancellation of a subscription does not entitle you to a refund for the current billing period, and your access to paid features will continue through the end of that period, after which your account will automatically revert to the Basic plan.</p>
+
+      <h3>4.4 Free Trials</h3>
+      <p>We may, from time to time, offer free trial periods for paid subscription plans. The terms of any free trial, including its duration, will be clearly disclosed at the time you initiate the trial. If you do not cancel your subscription before the expiration of the free trial period, you will be automatically charged the applicable subscription fee at the conclusion of the trial. We reserve the right to modify or discontinue free trial offers at any time.</p>
+
+      <h3>4.5 Refund Policy</h3>
+      <p>Because all payments for the Service are processed by Apple, all requests for refunds must be submitted directly to Apple and are governed by Apple's refund policies. We do not process subscription refunds directly. We have no authority to issue refunds for purchases made through Apple's in-app purchase system.</p>
+    </div>
+
+    <!-- 5. License -->
+    <div class="section">
+      <h2>5. License to Use the Service</h2>
+      <p>Subject to your compliance with these Terms, and conditioned upon your payment of any applicable subscription fees, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use the App on one or more Apple devices that you own or control, solely for your personal, non-commercial purposes and solely in accordance with these Terms and any applicable usage policies.</p>
+      <p>This license does not include the right to:</p>
+      <ul>
+        <li>Copy, reproduce, modify, create derivative works based on, distribute, publicly display, publicly perform, or otherwise exploit the App or any portion thereof, except as expressly permitted by these Terms</li>
+        <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code or underlying structure or algorithms of the App</li>
+        <li>Access or use the App through any automated means, including bots, scrapers, crawlers, or similar technologies, without our express prior written permission</li>
+        <li>Remove, obscure, or alter any proprietary notice, label, or legend contained within the App</li>
+        <li>Transfer, assign, sublicense, or otherwise convey the rights granted under this license to any other party</li>
+      </ul>
+      <p>All rights not expressly granted to you in these Terms are reserved by balancebook and its licensors. Nothing in these Terms shall be construed to grant you any rights in or to the Service other than as expressly set forth herein.</p>
+    </div>
+
+    <!-- 6. User Content -->
+    <div class="section">
+      <h2>6. User Content and Data</h2>
+      <p>You retain all ownership rights in and to the data and content that you submit to or create through the Service, including but not limited to financial entries, categories, budgets, notes, and tags (collectively, "User Content"). By submitting User Content to the Service, you grant us a limited, non-exclusive, worldwide, royalty-free license to store, transmit, process, and otherwise use your User Content solely to the extent necessary to provide, operate, maintain, and improve the Service for your benefit and in accordance with these Terms and our <a href="privacy.html">Privacy Policy</a>. We do not claim any ownership rights in your User Content, and nothing in these Terms shall be construed to transfer any ownership interest in your User Content to us.</p>
+      <p>You represent and warrant that: (a) you own or otherwise have all necessary rights to the User Content you submit; (b) your submission and use of the User Content through the Service does not and will not violate any applicable law, regulation, or third-party right; and (c) your User Content does not contain any information belonging to third parties that you are not authorized to share. You are solely responsible for the accuracy, completeness, and lawfulness of all User Content you submit to the Service.</p>
+      <p>You are solely responsible for maintaining independent backups of any User Content you wish to preserve. We recommend using the export feature (<strong>Settings → Export Data</strong>) to retain local copies of your data. We do not guarantee the preservation of User Content in the event of account deletion, termination, or data loss caused by circumstances beyond our reasonable control.</p>
+    </div>
+
+    <!-- 7. Bank Connections -->
+    <div class="section">
+      <h2>7. Bank Account Connections and Third-Party Financial Data Services</h2>
+      <p>The Service offers an optional feature that allows you to connect one or more bank accounts or financial institution accounts to the Service for the purpose of automatically importing transaction data. This feature is provided through Plaid Technologies, Inc. ("Plaid"), a third-party financial data aggregation service.</p>
+      <p>By choosing to connect a bank account, you authorize balancebook and Plaid to access and retrieve transaction data and account metadata from your designated financial institution(s) to the extent necessary to provide the bank connection feature. You acknowledge and agree that:</p>
+      <ul>
+        <li>All authentication with your financial institution is conducted directly through Plaid's interface; balancebook does not receive, store, or have access to your bank account numbers, routing numbers, online banking login credentials, or any other authentication information for your financial institution</li>
+        <li>Your use of the bank connection feature is also subject to <a href="https://plaid.com/legal/#privacy-policy" target="_blank" rel="noopener">Plaid's Privacy Policy</a> and Plaid's end user terms, which govern Plaid's collection, use, and disclosure of your information in connection with this feature</li>
+        <li>We are not responsible for the availability, accuracy, security, or privacy practices of Plaid or your financial institution, and we disclaim all liability arising from your use of those services</li>
+      </ul>
+      <p>You agree to connect only bank accounts or financial accounts that you own or that you are otherwise duly authorized to access. By initiating a bank connection, you represent and warrant to us and to Plaid that you have all necessary rights and authority to authorize the retrieval of data from the accounts you connect.</p>
+      <p>You may disconnect a bank account from the Service at any time through the App. Upon disconnection, the access token associated with that account will be permanently deleted from our systems, and no further transaction data will be retrieved from that account. When disconnecting, you will also be provided with the option to permanently delete all transaction data previously synced from that account. Please be aware that disconnecting a bank account through the Service does not affect any data that Plaid or your financial institution may retain independently pursuant to their respective privacy policies and terms.</p>
+      <p>We reserve the right to disconnect any linked bank accounts associated with accounts that have not been actively used for an extended period of time, for security purposes. You may reconnect your accounts at any time by re-initiating the connection process through the App.</p>
+    </div>
+
+    <!-- 8. No Financial Advice -->
+    <div class="section">
+      <h2>8. No Financial, Investment, or Legal Advice</h2>
+      <div class="highlight-box">
+        <p>balancebook is a financial tracking and budgeting tool. Nothing in the Service constitutes financial, investment, tax, accounting, or legal advice.</p>
+      </div>
+      <p>The Service is designed and intended solely to assist you in organizing, recording, and reviewing your own financial information. The features, data displays, charts, budget projections, and other outputs of the Service are provided for informational and organizational purposes only and do not constitute, and should not be interpreted as, financial advice, investment recommendations, tax guidance, or legal counsel.</p>
+      <p>You acknowledge that any financial, investment, tax, or legal decisions you make in connection with your use of the Service are made at your sole discretion and risk. You are solely responsible for independently evaluating any information or output derived from the Service and for consulting with qualified and licensed financial, tax, investment, and legal professionals before making any decision of financial or legal significance.</p>
+    </div>
+
+    <!-- 9. Privacy -->
+    <div class="section">
+      <h2>9. Privacy</h2>
+      <p>Your use of the Service is subject to our <a href="privacy.html">Privacy Policy</a>, which is incorporated into and forms an integral part of these Terms by this reference. The Privacy Policy describes in detail how we collect, use, disclose, and protect your personal information in connection with the Service. By using the Service, you acknowledge that you have read and understood our Privacy Policy and consent to the collection, use, and disclosure of your information as described therein.</p>
+    </div>
+
+    <!-- 10. Intellectual Property -->
+    <div class="section">
+      <h2>10. Intellectual Property Rights</h2>
+      <p>The Service, including but not limited to the App, all software, algorithms, user interfaces, text, graphics, logos, icons, images, audio and video clips, and all other content and materials contained therein (excluding User Content), are owned by or licensed to balancebook and are protected by applicable intellectual property laws, including United States copyright, trademark, and trade secret laws, as well as applicable international treaties.</p>
+      <p>The balancebook name, logo, and any other marks, product names, or service names used in connection with the Service are trademarks or service marks of balancebook. Nothing in these Terms grants you any right, license, or interest in or to any intellectual property owned by or licensed to balancebook, including any trademarks or service marks. Any unauthorized use of our intellectual property is strictly prohibited.</p>
+    </div>
+
+    <!-- 11. Prohibited Uses -->
+    <div class="section">
+      <h2>11. Prohibited Uses</h2>
+      <p>In addition to any other restrictions set forth in these Terms, you agree that you will not use the Service, directly or indirectly, to:</p>
+      <ul>
+        <li>Violate any applicable federal, state, local, or international law, regulation, or legal obligation</li>
+        <li>Infringe, misappropriate, or violate the intellectual property rights, privacy rights, publicity rights, or other rights of any third party</li>
+        <li>Upload, transmit, distribute, or otherwise make available any content that contains malware, viruses, Trojan horses, worms, or any other harmful, disruptive, or destructive code or files</li>
+        <li>Attempt to gain unauthorized access to any portion of the Service, any other user's account, or any computer systems or networks connected to or used in the operation of the Service</li>
+        <li>Interfere with, disrupt, or damage the integrity or performance of the Service or any underlying systems or infrastructure</li>
+        <li>Harass, threaten, intimidate, defame, or otherwise harm any person</li>
+        <li>Impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with any person or entity</li>
+        <li>Use the Service for any commercial purpose or for any public display without our express prior written consent</li>
+        <li>Engage in any activity that, in our sole judgment, imposes an unreasonable or disproportionately large load on our infrastructure or otherwise adversely affects the provision of the Service to other users</li>
+      </ul>
+    </div>
+
+    <!-- 12. Third-Party Services -->
+    <div class="section">
+      <h2>12. Third-Party Services and Links</h2>
+      <p>The Service integrates with, relies upon, or may include references to third-party products and services, including but not limited to Apple (for authentication, in-app purchases, and device notifications), Plaid (for optional bank account connectivity), and Google Cloud (for infrastructure and data storage). Your access to and use of any such third-party services is governed by the respective terms of service and privacy policies of those third parties, which are independent of these Terms and over which we exercise no control.</p>
+      <p>We do not endorse, are not responsible for, and make no representations or warranties with respect to any third-party service, product, content, or practice. Your use of third-party services is at your own risk, and you are solely responsible for your compliance with any applicable third-party terms. We disclaim all liability for any loss or damage arising from your use of third-party services accessed through or in connection with the Service.</p>
+    </div>
+
+    <!-- 13. Disclaimers -->
+    <div class="section">
+      <h2>13. Disclaimers of Warranty</h2>
+      <div class="caps-block">
+        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. WE EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING, USAGE OF TRADE, OR COURSE OF PERFORMANCE.</p>
+      </div>
+      <p>Without limiting the foregoing, we do not warrant that: (a) the Service will meet your requirements or expectations; (b) the Service will be available, uninterrupted, timely, secure, or error-free at any time or location; (c) any data imported through bank connections or retrieved from third-party sources will be accurate, complete, or current; (d) any defects or errors in the Service will be corrected; or (e) the Service is free of viruses, malware, or other harmful components. You assume sole and full responsibility for all risks associated with your use of the Service and your reliance on any information or data obtained through the Service.</p>
+    </div>
+
+    <!-- 14. Limitation of Liability -->
+    <div class="section">
+      <h2>14. Limitation of Liability</h2>
+      <div class="caps-block">
+        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL BALANCEBOOK, ITS OWNERS, OFFICERS, AGENTS, CONTRACTORS, OR SERVICE PROVIDERS BE LIABLE TO YOU OR TO ANY THIRD PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES OF ANY KIND, INCLUDING BUT NOT LIMITED TO LOSS OF DATA, LOSS OF PROFITS, LOSS OF SAVINGS, LOSS OF GOODWILL, COSTS OF SUBSTITUTE GOODS OR SERVICES, OR ANY OTHER INTANGIBLE LOSS, ARISING OUT OF OR IN ANY WAY RELATED TO: (A) YOUR ACCESS TO, USE OF, OR INABILITY TO ACCESS OR USE THE SERVICE; (B) ANY CONTENT, DATA, OR INFORMATION OBTAINED THROUGH THE SERVICE; (C) UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR ACCOUNT OR DATA; OR (D) ANY OTHER MATTER ARISING FROM OR RELATED TO THE SERVICE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+      </div>
+      <p>Our total aggregate liability to you for all claims arising out of or relating to these Terms or your use of the Service shall not exceed the greater of: (a) the total amount you paid to us for the Service in the twelve (12) months immediately preceding the date on which the claim arose; or (b) fifty dollars (US $50.00).</p>
+      <p>Nothing in these Terms shall limit or exclude our liability for fraud, fraudulent misrepresentation, personal injury, or death caused by our negligence, or any other liability that cannot be excluded or limited by applicable law.</p>
+      <p>The limitations of liability set forth in this Section 14 reflect a reasonable allocation of risk and form an essential basis of the bargain between the parties. Some jurisdictions do not allow the exclusion or limitation of certain categories of damages, and accordingly, some or all of the limitations set forth above may not apply to you. In such jurisdictions, our liability shall be limited to the maximum extent permitted by applicable law.</p>
+    </div>
+
+    <!-- 15. Indemnification -->
+    <div class="section">
+      <h2>15. Indemnification</h2>
+      <p>To the fullest extent permitted by applicable law, you agree to indemnify, defend, and hold harmless balancebook and its respective owners, officers, agents, contractors, and service providers (each, an "Indemnified Party") from and against any and all claims, actions, demands, proceedings, losses, damages, judgments, penalties, fines, costs, liabilities, and expenses (including reasonable attorneys' fees and court costs) that arise out of or relate to: (a) your access to or use of the Service; (b) your User Content; (c) your violation of any provision of these Terms; (d) your violation of any applicable law, regulation, or third-party right; or (e) any misrepresentation made by you in connection with the Service. We reserve the right to assume exclusive control of the defense of any matter for which you are required to indemnify an Indemnified Party, at your cost and expense, and you agree to cooperate fully with us in the defense of any such claim.</p>
+    </div>
+
+    <!-- 16. Termination -->
+    <div class="section">
+      <h2>16. Term and Termination</h2>
+      <p>These Terms are effective as of the date you first access or use the Service and continue until terminated in accordance with this Section.</p>
+      <p>We reserve the right to suspend or permanently terminate your access to all or any portion of the Service, with or without notice, at any time and for any reason, including but not limited to: (a) your actual or suspected violation of these Terms; (b) our reasonable belief that your continued use of the Service poses a risk to the security, integrity, or operation of the Service or to other users; or (c) our decision to discontinue all or any portion of the Service.</p>
+      <p>You may terminate your account and your use of the Service at any time by deleting your account from within the App. Upon any termination of your account, your User Content will be deleted from our systems in accordance with our <a href="privacy.html">Privacy Policy</a>.</p>
+      <p>Upon any termination, the following provisions of these Terms shall survive and remain in full force and effect: Sections 5 (to the extent of any pre-existing license restrictions), 6 (User Content), 10 (Intellectual Property Rights), 13 (Disclaimers of Warranty), 14 (Limitation of Liability), 15 (Indemnification), 16 (Term and Termination), 19 (Governing Law and Disputes), 21 (Export Control), and 22 (Miscellaneous).</p>
+    </div>
+
+    <!-- 17. Apple App Store Notice -->
+    <div class="section">
+      <h2>17. Apple App Store Notice</h2>
+      <p>The following terms apply to your use of the App to the extent that it was obtained through Apple's App Store. These terms supplement, and do not supersede, any other applicable provisions of these Terms:</p>
+      <ul>
+        <li>These Terms are entered into between you and balancebook. Apple is not a party to these Terms and has no obligation or liability of any kind to you in connection with the Service or these Terms.</li>
+        <li>The license granted to you under Section 5 of these Terms is limited to a non-transferable license to use the App on any Apple-branded products that you own or control and as permitted by the Usage Rules set forth in Apple's App Store Terms of Service.</li>
+        <li>Apple has no obligation whatsoever to furnish any maintenance or support services with respect to the App.</li>
+        <li>In the event that the App fails to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price, if any, for the App to you. To the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to the App, and any other claims, losses, liabilities, damages, costs, or expenses attributable to any failure to conform to any applicable warranty will be our sole responsibility, subject to these Terms.</li>
+        <li>Apple is not responsible for addressing any claims by you or any third party relating to the App or your possession and/or use of the App, including but not limited to: (a) product liability claims; (b) any claim that the App fails to conform to any applicable legal or regulatory requirement; and (c) claims arising under consumer protection, privacy, or similar legislation.</li>
+        <li>In the event of any third-party claim that the App or your possession and use of the App infringes that third party's intellectual property rights, Apple will not be responsible for the investigation, defense, settlement, or discharge of any such intellectual property infringement claim.</li>
+        <li>Apple and its subsidiaries are third-party beneficiaries of these Terms. Upon your acceptance of these Terms, Apple will have the right (and will be deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary thereof.</li>
+      </ul>
+    </div>
+
+    <!-- 18. Changes to Terms -->
+    <div class="section">
+      <h2>18. Changes to These Terms</h2>
+      <p>We reserve the right to modify these Terms at any time in our sole discretion. If we make material changes to these Terms, we will use commercially reasonable efforts to notify you of such changes through the App, by posting a notice on our website, or by other means reasonably likely to reach you. The "Last Updated" date at the top of these Terms will reflect the date of the most recent modifications. Your continued use of the Service following the effective date of any updated Terms constitutes your acceptance of and agreement to the revised Terms. If you do not agree to any modification of these Terms, you must discontinue your use of the Service.</p>
+    </div>
+
+    <!-- 19. Governing Law and Disputes -->
+    <div class="section">
+      <h2>19. Governing Law and Disputes</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the State of Washington, without giving effect to any choice-of-law or conflict-of-law rules or provisions that would cause the application of the laws of any other jurisdiction.</p>
+      <p>Any dispute, claim, or controversy arising out of or relating to these Terms or the breach, termination, enforcement, interpretation, or validity thereof, or to your use of the Service, that cannot be resolved informally shall be submitted to the exclusive jurisdiction of the state and federal courts located in the State of Washington, and each party irrevocably consents to personal jurisdiction and venue in such courts for the purpose of litigating any such dispute.</p>
+      <p>Prior to initiating any formal legal proceeding, we encourage you to contact us through our <a href="support.html">support page</a> to attempt to resolve any dispute informally. Many issues can be resolved quickly and to the satisfaction of both parties through direct communication.</p>
+    </div>
+
+    <!-- 20. Force Majeure -->
+    <div class="section">
+      <h2>20. Force Majeure</h2>
+      <p>We shall not be liable for any delay or failure to perform any obligation under these Terms where such delay or failure results from causes beyond our reasonable control, including but not limited to acts of God, natural disasters, fire, flood, earthquake, pandemic, war, terrorism, civil unrest, labor disputes, power or utility failures, internet or telecommunications outages, governmental actions or regulations, or failures of third-party service providers. In the event of such a circumstance, our obligations will be suspended for the duration of the delay, and we will use commercially reasonable efforts to resume performance as soon as practicable.</p>
+    </div>
+
+    <!-- 21. Export Control -->
+    <div class="section">
+      <h2>21. Export Control</h2>
+      <p>You represent and warrant that: (a) you are not located in a country that is subject to a U.S. Government embargo or that has been designated by the U.S. Government as a terrorist-supporting country; and (b) you are not listed on any U.S. Government list of prohibited or restricted parties, including but not limited to the U.S. Treasury Department's list of Specially Designated Nationals or the U.S. Department of Commerce Denied Person's List. You agree to comply with all applicable export control laws and regulations in connection with your use of the Service.</p>
+    </div>
+
+    <!-- 22. Miscellaneous -->
+    <div class="section">
+      <h2>22. Miscellaneous</h2>
+      <ul>
+        <li><strong>Entire Agreement.</strong> These Terms, together with our Privacy Policy and any other agreements or policies expressly incorporated by reference herein, constitute the entire agreement between you and balancebook with respect to the subject matter hereof and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, whether written or oral, with respect to the Service.</li>
+        <li><strong>Severability.</strong> If any provision of these Terms is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent necessary, and the remaining provisions of these Terms shall continue in full force and effect.</li>
+        <li><strong>Waiver.</strong> Our failure or delay in exercising or enforcing any right, remedy, power, or privilege under these Terms shall not constitute a waiver of that right, remedy, power, or privilege or otherwise preclude us from exercising or enforcing such right, remedy, power, or privilege at any time.</li>
+        <li><strong>Assignment.</strong> You may not assign, delegate, or otherwise transfer any of your rights or obligations under these Terms, whether by operation of law or otherwise, without our prior written consent. Any purported assignment in violation of this provision shall be null and void. We may freely assign our rights and obligations under these Terms without restriction.</li>
+        <li><strong>No Third-Party Beneficiaries.</strong> Except as expressly provided in Section 17 with respect to Apple, these Terms are not intended to and do not create any rights in or obligations to any third party.</li>
+        <li><strong>Headings.</strong> Section headings in these Terms are for convenience only and shall have no legal or contractual effect.</li>
+      </ul>
+    </div>
+
+    <!-- 23. Contact -->
+    <div class="section">
+      <h2>23. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests relating to these Terms or the Service, please contact us through our <a href="support.html">support page</a>.</p>
+    </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>© 2026 of deep origin LLC</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — balancebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #0f1720;
+      --body: #4d5966;
+      --muted: #6d7783;
+      --line: rgba(15, 23, 32, 0.1);
+      --line-soft: rgba(15, 23, 32, 0.06);
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-strong: rgba(255, 255, 255, 0.94);
+      --bg: #f8f8f5;
+      --accent: #236846;
+      --accent-soft: rgba(35, 104, 70, 0.08);
+      --shadow-sm: 0 6px 18px rgba(15, 23, 32, 0.05);
+      --shadow-md: 0 18px 44px rgba(15, 23, 32, 0.08);
+      --max: 1120px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #edf2f7;
+        --body: #b5c0cb;
+        --muted: #8f9baa;
+        --line: rgba(255, 255, 255, 0.1);
+        --line-soft: rgba(255, 255, 255, 0.06);
+        --surface: rgba(17, 24, 31, 0.82);
+        --surface-strong: rgba(20, 27, 34, 0.94);
+        --bg: #0d1217;
+        --accent: #6abb8e;
+        --accent-soft: rgba(106, 187, 142, 0.12);
+        --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 20px 52px rgba(0, 0, 0, 0.34);
+      }
+    }
+    html { color-scheme: light dark; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.24), transparent 34%),
+        linear-gradient(90deg, rgba(201, 92, 78, 0.09) 0%, rgba(248, 248, 245, 0) 42%, rgba(41, 113, 77, 0.09) 100%),
+        linear-gradient(180deg, #f6f4f1 0%, #f8f8f5 24%, #fbfbf9 100%);
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.18), transparent 32%),
+          radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(201, 92, 78, 0.07) 0%, rgba(13, 18, 23, 0) 42%, rgba(41, 113, 77, 0.07) 100%),
+          linear-gradient(180deg, #0d1217 0%, #10161c 24%, #121920 100%);
+      }
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: linear-gradient(180deg, rgba(246, 244, 241, 0.82), rgba(248, 248, 245, 0.46));
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(15, 23, 32, 0.05);
+    }
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 12px 28px rgba(15, 23, 32, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      nav {
+        background: linear-gradient(180deg, rgba(13, 18, 23, 0.84), rgba(13, 18, 23, 0.48));
+        border-bottom-color: rgba(255, 255, 255, 0.04);
+      }
+      .nav-inner {
+        background: linear-gradient(180deg, rgba(23, 31, 40, 0.9), rgba(18, 25, 32, 0.76));
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 16px 36px rgba(0, 0, 0, 0.26);
+      }
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      box-shadow: 0 8px 20px rgba(15, 23, 32, 0.1);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--ink); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 15px;
+      background: #0f1720;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(15, 23, 32, 0.14);
+    }
+    .nav-cta:hover { background: #1b2430; }
+    .legal-page {
+      padding: 48px 0 80px;
+    }
+    .legal-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 28px 80px;
+    }
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 {
+      font-size: clamp(34px, 4vw, 46px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.04;
+      margin-bottom: 14px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .section { margin-bottom: 48px; }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--body);
+      margin-bottom: 12px;
+      line-height: 1.75;
+    }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul, .section ol {
+      margin: 8px 0 12px;
+      padding-left: 20px;
+    }
+    .section li {
+      font-size: 15px;
+      color: var(--body);
+      margin-bottom: 6px;
+      line-height: 1.7;
+    }
+    .section li strong { color: var(--ink); }
+    .section a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .highlight-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(35, 104, 70, 0.16);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 6px 0 18px;
+    }
+    .highlight-box p {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+    .table-wrap {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      margin: 14px 0 18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      .table-wrap { background: rgba(255, 255, 255, 0.02); }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line-soft);
+      color: var(--body);
+      vertical-align: top;
+    }
+    td:first-child {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    tr:last-child td { border-bottom: none; }
+    footer {
+      padding: 0 0 28px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 16px 0 0;
+      border-top: 1px solid var(--line);
+    }
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-brand img {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .footer-links a:hover { color: var(--ink); }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .legal-page { padding: 28px 0 56px; }
+      .legal-card { border-radius: 24px; }
+      .content { padding: 34px 20px 56px; }
+      .page-header h1 { font-size: 30px; }
+      .section h2 { font-size: 19px; }
+      td, th { padding: 8px 10px; }
+      .footer-inner { padding-top: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>balancebook</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="shell">
+      <div class="legal-card">
+        <div class="content">
+
+    <div class="page-header">
+      <h1>Privacy Policy</h1>
+      <div class="meta">
+        <span>Effective April 4, 2026</span>
+        <span>Last updated April 4, 2026</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="section">
+      <p>balancebook ("we," "our," or "us") operates a personal finance tracking application for iOS devices (the "Service"). This Privacy Policy describes in detail the types of information we collect from and about you when you use the Service, how we use and disclose that information, the choices available to you regarding our use of your information, and how you can access and update that information.</p>
+      <p>This Privacy Policy applies to all users of the Service. By creating an account or otherwise accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by the terms of this Privacy Policy. If you do not agree to the terms of this Privacy Policy, please do not use the Service.</p>
+      <p>We may revise this Privacy Policy from time to time. The most current version will always be available through the Service. Your continued use of the Service following the posting of any changes constitutes your acceptance of such changes.</p>
+    </div>
+
+    <!-- 1. Information We Collect -->
+    <div class="section">
+      <h2>1. Information We Collect</h2>
+      <p>We collect information in several ways: information you provide directly to us, information collected through your optional use of bank connection features, and information collected automatically by third-party service providers in the ordinary course of operating the Service.</p>
+
+      <h3>1.1 Information You Provide Directly</h3>
+      <p>When you use the Service, you may provide us with certain information directly, including:</p>
+      <ul>
+        <li><strong>Financial entries</strong> — expense and income amounts, dates, notes, and categories that you enter manually into the Service</li>
+        <li><strong>Budget information</strong> — budget names, amounts, and recurrence settings that you configure within the Service</li>
+        <li><strong>Tags</strong> — custom labels that you create and assign to entries</li>
+        <li><strong>Account information</strong> — your name and email address, to the extent provided through Sign in with Apple during account creation</li>
+        <li><strong>Support correspondence</strong> — the content of messages, inquiries, or other communications you submit to us through our support channels</li>
+      </ul>
+      <p>We use this information solely to provide, operate, and improve the Service as described in Section 2 of this Privacy Policy.</p>
+
+      <h3>1.2 Information Collected Through Bank Connections (Optional)</h3>
+      <p>The Service offers an optional feature that allows you to connect your bank or financial institution accounts in order to automatically import transaction data. If you choose to use this feature, we collect the following information from your connected accounts:</p>
+      <ul>
+        <li><strong>Transaction data</strong> — individual transaction amounts, dates, merchant names, and category classifications associated with your connected accounts</li>
+        <li><strong>Account metadata</strong> — the names and types of your connected accounts (such as checking, savings, or credit card)</li>
+      </ul>
+      <p>The use of this bank connection feature is entirely voluntary. You may use the Service in its full capacity for manual entry without connecting any bank accounts. We do not collect, store, or have access to your bank account numbers, routing numbers, online banking login credentials, or any other authentication information for your financial institution. All financial institution authentication is handled directly by our third-party bank connection provider as described in Section 4.</p>
+
+      <h3>1.3 Automatically Collected Information</h3>
+      <p>In the ordinary course of providing the Service, certain technical and operational information may be automatically collected by our third-party cloud service providers. We do not direct the collection of this information, and we do not use it to build user profiles or for advertising purposes. Such information is processed solely for the purpose of operating, maintaining, and securing the infrastructure that supports the Service. Data processed by our third-party cloud service providers in this manner is subject to their respective privacy policies, which are identified in Section 3.1 of this Privacy Policy.</p>
+
+      <h3>1.4 Information We Do Not Collect</h3>
+      <p>We wish to be transparent about the categories of information we do not collect:</p>
+      <ul>
+        <li>Bank account numbers, routing numbers, or login credentials for any financial institution</li>
+        <li>Social Security Numbers, tax identification numbers, or government-issued identification numbers or documents</li>
+        <li>Precise or approximate geographic location data</li>
+        <li>Third-party advertising identifiers, behavioral analytics SDKs, or tracking pixels of any kind</li>
+        <li>Browser cookies or web-based tracking technologies (the Service is a native iOS application and does not engage in web-based data collection)</li>
+        <li>Health information, biometric data, or any data derived from physical characteristics</li>
+      </ul>
+    </div>
+
+    <!-- 2. How We Use Your Information -->
+    <div class="section">
+      <h2>2. How We Use Your Information</h2>
+      <p>We use the information we collect for the following purposes, all of which are directed toward operating and improving the Service:</p>
+      <ul>
+        <li>To present your financial entries, budgets, trends, and other data within the Service in the manner you have configured</li>
+        <li>To synchronize your data across your authorized devices through our cloud infrastructure</li>
+        <li>To enable and support the shared ledger functionality when you voluntarily choose to share a ledger with another user</li>
+        <li>To deliver push notifications to your device, where you have granted permission for such notifications</li>
+        <li>To receive, process, and respond to support requests and other communications you submit to us</li>
+        <li>To monitor, detect, investigate, and take action with respect to fraudulent, unauthorized, or illegal activity involving the Service</li>
+        <li>To maintain the security, integrity, and availability of the Service and its underlying infrastructure</li>
+        <li>To fulfill our obligations under applicable laws, regulations, legal process, or enforceable governmental requests</li>
+      </ul>
+      <div class="highlight-box">
+        <p>We do not sell your personal information. We do not share your financial data with third parties for marketing, advertising, or any other commercial purpose unrelated to the direct provision of the Service.</p>
+      </div>
+    </div>
+
+    <!-- 3. How We Share Your Information -->
+    <div class="section">
+      <h2>3. How We Share Your Information</h2>
+      <p>We do not sell your personal information. Except as described in this Section 3, we do not disclose your personal information to third parties. We share information only in the following limited and specific circumstances:</p>
+
+      <h3>3.1 Service Providers</h3>
+      <p>We engage certain third-party service providers to assist us in operating, maintaining, and improving the Service. We share only the minimum information necessary for each provider to fulfill its designated function. Our current service providers relevant to the processing of personal information are as follows:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Service Provider</th><th>Function</th><th>Privacy Policy</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Google Cloud</td>
+              <td>User authentication, cloud database infrastructure, serverless computing functions</td>
+              <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">View</a></td>
+            </tr>
+            <tr>
+              <td>Plaid</td>
+              <td>Optional bank account connectivity and financial transaction data retrieval</td>
+              <td><a href="https://plaid.com/legal/#privacy-policy" target="_blank" rel="noopener">View</a></td>
+            </tr>
+            <tr>
+              <td>Apple (Sign in with Apple)</td>
+              <td>User account authentication</td>
+              <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.2 Shared Ledger Members</h3>
+      <p>Where you voluntarily elect to share a ledger with one or more other users of the Service, those users will be granted access to the entries, categories, budgets, and tags contained within that specific shared ledger, in accordance with the role you assign to them (Viewer or Editor). The scope of shared access is limited strictly to the ledger you have chosen to share. Shared ledger members do not have access to your other ledgers, account credentials, or any other personal information associated with your account. For a more detailed description of shared ledger functionality and your controls, please refer to Section 6 of this Privacy Policy.</p>
+
+      <h3>3.3 Legal Compliance and Protection</h3>
+      <p>We may disclose your personal information to third parties, including governmental authorities and law enforcement agencies, where we believe in good faith that such disclosure is necessary or appropriate to:</p>
+      <ul>
+        <li>Comply with any applicable federal, state, or local law, regulation, rule, or legal process, including but not limited to a court order, subpoena, civil investigative demand, or other legal compulsion</li>
+        <li>Respond to requests or inquiries from governmental, regulatory, or law enforcement authorities with jurisdiction over us or our operations</li>
+        <li>Enforce or protect our rights under our Terms of Service or other agreements with you</li>
+        <li>Investigate, prevent, or take action with respect to suspected or actual illegal activity, fraud, or violations of our policies</li>
+        <li>Protect the rights, property, safety, or security of balancebook, our users, the public, or any other person or entity</li>
+      </ul>
+      <p>To the extent permitted by applicable law, we will attempt to notify you of any such disclosure.</p>
+
+      <h3>3.4 Business Transfers</h3>
+      <p>In the event that balancebook is involved in a merger, acquisition, consolidation, restructuring, sale of assets, bankruptcy, insolvency, or other similar transaction or proceeding, your personal information may be transferred to, or become accessible by, one or more third parties as part of or in connection with such transaction. In the event of such a transfer, we will use commercially reasonable efforts to notify you prior to the transfer of your information and prior to your information becoming subject to a materially different privacy policy.</p>
+
+      <h3>3.5 De-Identified and Aggregated Data</h3>
+      <p>We reserve the right to create, use, and disclose de-identified, anonymized, or aggregated data derived from your information, provided that such data cannot reasonably be used to identify you individually. Such data may be used for internal research, analytics, service improvement, and product development purposes. We do not sell de-identified or aggregated data to third parties.</p>
+
+      <h3>3.6 With Your Express Consent</h3>
+      <p>We may share your personal information with third parties where you have provided your express, informed consent to such sharing, or where you have explicitly directed us to share information with a specific third party.</p>
+    </div>
+
+    <!-- 4. Bank Connections -->
+    <div class="section">
+      <h2>4. Bank Connections and Third-Party Financial Data Services</h2>
+      <p>The Service integrates with Plaid Technologies, Inc. ("Plaid") to provide optional bank account connectivity features. The following describes how this integration operates and the privacy implications for users who elect to use it:</p>
+      <ul>
+        <li>When you initiate a bank connection, you will be directed to Plaid's interface to authenticate with your financial institution. At no point during this process does balancebook receive, view, or store your bank login credentials. All authentication is conducted directly between you and Plaid.</li>
+        <li>Upon successful authentication, Plaid issues balancebook a limited-scope access token that represents your authorization for us to retrieve transaction data from your connected accounts. This access token is encrypted prior to being stored. The unencrypted token is never persisted or logged by our systems.</li>
+        <li>Transaction and account data retrieved through this integration is stored within your balancebook account in Google Cloud Services and is subject to the same protections described throughout this Privacy Policy.</li>
+        <li>Plaid's collection, use, and disclosure of your information in connection with the bank connection process is governed by <a href="https://plaid.com/legal/#privacy-policy" target="_blank" rel="noopener">Plaid's Privacy Policy</a>. We encourage you to review Plaid's Privacy Policy before connecting a bank account.</li>
+      </ul>
+      <p>You may disconnect a connected bank account at any time from within the Service. Upon disconnection, the stored access token associated with that account will be permanently deleted and no further transaction data will be retrieved. When disconnecting, you will also be presented with the option to permanently delete all transaction data previously synced from that account from balancebook's servers. You should be aware that disconnecting a bank account does not affect any data that Plaid may retain independently pursuant to its own privacy policy.</p>
+    </div>
+
+    <!-- 5. How We Store Your Data -->
+    <div class="section">
+      <h2>5. How We Store and Protect Your Data</h2>
+
+      <h3>5.1 Cloud Storage Infrastructure</h3>
+      <p>Your balancebook data is stored on servers operated by Google Cloud Services, located in the United States. Google Cloud applies encryption to all data stored within its infrastructure at rest, using AES-256 encryption by default. All data transmitted between the Service and our backend infrastructure is protected in transit through the use of HTTPS with Transport Layer Security (TLS) version 1.2 or higher.</p>
+
+      <h3>5.2 On-Device Storage</h3>
+      <p>The Service does not maintain a local copy of your financial data on your device. All financial data associated with your account resides in Google Cloud and is retrieved on demand when you use the Service. The Service does store certain non-financial application preferences locally on your device — such as display currency selection and appearance settings — using standard iOS application storage mechanisms. These preferences are not transmitted to or stored on our servers.</p>
+
+      <h3>5.3 Access Controls and Data Isolation</h3>
+      <p>Your data can only be accessed by your authenticated account, or by users to whom you have explicitly granted access through the shared ledger feature. We maintain technical controls designed to prevent any user from accessing the data of another user without authorization.</p>
+      <p>As administrators of the Service, we may access your data solely for the purposes of operating, maintaining, and troubleshooting the Service. Such access is limited to what is necessary to fulfill those functions.</p>
+    </div>
+
+    <!-- 6. Shared Ledgers -->
+    <div class="section">
+      <h2>6. Shared Ledgers</h2>
+      <p>The Service provides an optional shared ledger feature that allows you to grant other users of the Service access to a specific ledger. The following terms govern the operation of this feature:</p>
+      <ul>
+        <li>You may invite other users to a shared ledger and assign each invited user a role of either Viewer (read-only access) or Editor (read and write access)</li>
+        <li>Users granted access to a shared ledger may view or modify, as applicable to their assigned role, the entries, categories, budgets, and tags contained within that shared ledger</li>
+        <li>You retain full administrative control over the shared ledger, including the ability to change user roles, revoke access, or remove any member at any time</li>
+        <li>A user's access to a shared ledger is strictly limited to that ledger; shared ledger members do not have access to your other ledgers, your account information, or any other data associated with your account</li>
+        <li>You are responsible for ensuring that you only share ledgers with individuals you trust, and for managing access appropriately</li>
+      </ul>
+    </div>
+
+    <!-- 7. Data Retention and Deletion -->
+    <div class="section">
+      <h2>7. Data Retention and Deletion</h2>
+
+      <h3>7.1 Retention Period</h3>
+      <p>We retain your personal information for as long as your account remains active. We do not apply an automatic expiration to inactive accounts. We may also retain certain information for longer periods where required by applicable law, regulation, legal process, or to fulfill the purposes described in this Privacy Policy, including to resolve disputes, enforce agreements, and maintain the security and integrity of the Service.</p>
+
+      <h3>7.2 Account Deletion by You</h3>
+      <p>You may delete your account and all associated personal information at any time by navigating to <strong>Settings → Account → Delete Account</strong> within the Service. Upon your confirmation of the deletion request, the following actions will occur:</p>
+      <ul>
+        <li>All ledgers that you own, together with all entries, categories, budgets, recurring templates, and tags associated with those ledgers, will be permanently and irreversibly deleted from our systems</li>
+        <li>Your authentication account will be permanently deleted</li>
+      </ul>
+      <p>Account deletion is immediate and cannot be undone. We strongly recommend that you export any data you wish to retain prior to initiating account deletion.</p>
+
+      <h3>7.3 Deletion Requests Submitted Through Support</h3>
+      <p>If you are unable to delete your account from within the Service, you may submit a formal deletion request through our <a href="support.html">support page</a>, including your user ID (which can be found in <strong>Settings → Account</strong>). Prior to fulfilling any such request, we may require you to provide additional information sufficient to verify your identity and your ownership of the account in question. We will use commercially reasonable efforts to fulfill verified deletion requests within thirty (30) days of receipt of a complete and verified request.</p>
+    </div>
+
+    <!-- 8. Your Rights and Choices -->
+    <div class="section">
+      <h2>8. Your Rights and Choices</h2>
+      <p>Depending on your jurisdiction and applicable law, you may have certain rights with respect to your personal information. This Section describes those rights and the mechanisms available to you for exercising them. We will not deny service, charge different rates, or provide a lower quality of service to any user as a result of that user's exercise of any rights described in this Section.</p>
+      <p>The rights described below may be subject to exceptions and limitations under applicable law. We may be required to verify your identity before processing certain requests, and we reserve the right to deny requests that we are unable to verify or that are subject to a lawful exception.</p>
+      <ul>
+        <li><strong>Right of Access</strong> — You have the right to request confirmation of whether we process personal information about you, and to request a copy of the personal information we hold about you, subject to applicable exceptions.</li>
+        <li><strong>Right of Correction</strong> — You have the right to request that we correct any inaccurate personal information we maintain about you.</li>
+        <li><strong>Right of Deletion</strong> — You have the right to request that we delete personal information we hold about you, subject to applicable legal exceptions. See Section 7 for the in-app deletion process.</li>
+        <li><strong>Right of Portability</strong> — You may export your data directly from the Service in CSV or JSON format via <strong>Settings → Export Data</strong>. This feature provides a machine-readable copy of your data that you may use as you see fit.</li>
+        <li><strong>Right to Opt-Out of Sale</strong> — We do not sell your personal information. Accordingly, there is no opt-out mechanism required with respect to the sale of your data.</li>
+      </ul>
+      <p>To exercise any of the rights described above, please contact us through our <a href="support.html">support page</a>. We will respond to verified requests within the timeframe required by applicable law. We reserve the right to charge a reasonable fee, or to decline to act on requests that are excessive, repetitive, or manifestly unfounded, to the extent permitted by applicable law.</p>
+
+      <h3>8.1 Push Notifications</h3>
+      <p>Where you have granted the Service permission to send push notifications to your device, you may withdraw that permission at any time through your iOS device settings (<strong>Settings → Notifications → balancebook</strong>). Withdrawal of notification permissions does not affect the functionality of the Service beyond the delivery of notifications.</p>
+
+      <h3>8.2 Marketing Communications</h3>
+      <p>We do not currently send promotional or marketing emails to users. In the event that we introduce such communications in the future, we will provide you with an opportunity to opt out, and every such communication will contain a clear and functional unsubscribe mechanism. Please note that transactional or administrative communications relating to your account — including responses to support requests — are not subject to opt-out.</p>
+
+      <h3>8.3 Right to Restrict Processing</h3>
+      <p>In certain circumstances, and subject to applicable law, you may have the right to request that we restrict our processing of your personal information while continuing to store it. This right may be applicable in the following circumstances:</p>
+      <ul>
+        <li>Where you contest the accuracy of your personal information and wish us to restrict processing while we investigate the accuracy of the data in question</li>
+        <li>Where our processing of your personal information is unlawful but you prefer restriction of processing over erasure of the data</li>
+        <li>Where we no longer require the personal information for the purposes for which it was collected, but you require us to retain it in connection with the establishment, exercise, or defense of a legal claim</li>
+        <li>Where you have objected to our processing of your personal information and a determination is pending as to whether our legitimate grounds for processing override your objection</li>
+      </ul>
+      <p>To submit a request to restrict processing of your personal information, please contact us through our <a href="support.html">support page</a>. We will respond to all such requests in accordance with applicable law.</p>
+
+      <h3>8.4 Right to Appeal Denied Requests</h3>
+      <p>In the event that we deny any request you submit pursuant to this Section 8, you have the right to appeal that denial. To submit an appeal, please contact us through our <a href="support.html">support page</a> and identify the subject of your appeal as "Privacy Rights Appeal," including your original request and the basis upon which you believe our denial was incorrect. We will respond to all appeals within forty-five (45) days of receipt. Residents of certain U.S. states, including but not limited to Colorado, Connecticut, Virginia, Texas, and Oregon, may additionally have the right to submit a complaint to their state's attorney general in the event their appeal is denied.</p>
+
+    </div>
+
+    <!-- 9. Automated Decision-Making -->
+    <div class="section">
+      <h2>9. Automated Decision-Making</h2>
+      <p>We do not engage in automated decision-making processes that produce legal effects concerning users, or that similarly significantly affect users, based solely on automated processing of personal information.</p>
+      <p>Where a user has connected a bank account and transaction data is imported into the Service, certain transaction records may be subject to algorithmic classification for the purpose of suggesting a category assignment. Any such classification is purely advisory in nature; users retain full discretion to accept, modify, or reject any suggested categorization. Such automated classification does not affect any user's rights, legal status, access to the Service, or any other matter of legal or similarly significant consequence.</p>
+    </div>
+
+    <!-- 10. Security -->
+    <div class="section">
+      <h2>10. Security</h2>
+      <p>We implement and maintain reasonable and appropriate administrative, technical, and physical safeguards designed to protect your personal information against unauthorized access, disclosure, alteration, destruction, or other unlawful processing. These measures include, without limitation:</p>
+      <ul>
+        <li>Encryption of all data transmitted between the Service and our backend infrastructure using HTTPS with TLS 1.2 or higher</li>
+        <li>Encryption of all data stored within our cloud infrastructure at rest using AES-256 encryption</li>
+        <li>Encryption of access tokens used for accessing bank transactional data prior to storage</li>
+        <li>Enforcing strict per-user data isolation such that no user may access another user's data without explicit authorization</li>
+        <li>Multi-factor authentication protecting administrative access to all production systems</li>
+        <li>Regular application of security updates and patches to all systems used in the operation of the Service</li>
+      </ul>
+      <p>You are responsible for maintaining the confidentiality and security of your Apple ID credentials and your device. You should not share your account credentials with any third party. If you have reason to believe that your account has been compromised or that unauthorized access to your account has occurred, please notify us immediately through our <a href="support.html">support page</a>.</p>
+      <p>We wish to be transparent that no method of data transmission over the internet and no method of electronic data storage can be guaranteed to be completely secure. While we are committed to using commercially reasonable measures to protect your personal information, we cannot warrant or guarantee the absolute security of any information you transmit to us or that we store on your behalf.</p>
+    </div>
+
+    <!-- 11. Children's Privacy -->
+    <div class="section">
+      <h2>11. Children's Privacy</h2>
+      <p>The Service is intended for use by individuals who are at least thirteen (13) years of age. We do not knowingly solicit, collect, or maintain personal information from any individual under the age of thirteen (13). If you have reason to believe that a child under the age of thirteen (13) has provided personal information to us through the Service, please notify us through our <a href="support.html">support page</a>. Upon receipt of such notification, we will conduct a reasonable investigation, and if we confirm that personal information from a child under thirteen (13) has been collected without verifiable parental consent, we will take prompt steps to delete such information from our records and terminate any associated account.</p>
+    </div>
+
+    <!-- 12. Third-Party Services -->
+    <div class="section">
+      <h2>12. Third-Party Services</h2>
+      <p>The Service integrates with or relies upon third-party products and services, including Plaid, Google Cloud, and Apple's Sign in with Apple authentication service. Your use of features that involve these third-party services may result in the collection, use, and disclosure of your information by those third parties, in addition to our own collection described in this Privacy Policy. Such collection, use, and disclosure by third parties is governed by the respective privacy policies of those third parties, not by this Privacy Policy. We are not responsible for the privacy practices of any third party and encourage you to review the applicable privacy policy of any third-party service before using features that involve that service.</p>
+    </div>
+
+    <!-- 13. California Residents -->
+    <div class="section">
+      <h2>13. Notice to California Residents</h2>
+      <p>If you are a resident of the State of California, you are entitled to certain additional rights with respect to your personal information under the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (collectively, "CCPA/CPRA"). The following additional disclosures are provided pursuant to those laws:</p>
+      <ul>
+        <li><strong>Right to Know</strong> — You have the right to request that we disclose to you the categories and specific pieces of personal information we have collected about you, the categories of sources from which such information was collected, the business or commercial purposes for which such information was collected or disclosed, and the categories of third parties to whom such information was disclosed.</li>
+        <li><strong>Right to Delete</strong> — You have the right to request that we delete personal information we have collected from you, subject to certain exceptions set forth in the CCPA/CPRA.</li>
+        <li><strong>Right to Correct</strong> — You have the right to request that we correct any inaccurate personal information we maintain about you.</li>
+        <li><strong>Right to Opt-Out of Sale or Sharing</strong> — You have the right to direct us not to sell or share your personal information. We do not sell or share your personal information for purposes of cross-context behavioral advertising, and we have not done so in the twelve (12) months preceding the effective date of this Privacy Policy.</li>
+        <li><strong>Right to Limit Use of Sensitive Personal Information</strong> — To the extent that we collect sensitive personal information as defined under the CCPA/CPRA, you have the right to direct us to limit our use and disclosure of such information to the purposes specified in the CCPA/CPRA. We do not use sensitive personal information for purposes beyond those necessary to provide the Service.</li>
+        <li><strong>Right to Non-Discrimination</strong> — We will not discriminate against you in any manner prohibited by the CCPA/CPRA for exercising any of the rights described in this Section.</li>
+      </ul>
+      <p>To submit a request to exercise any of the above rights, please contact us through our <a href="support.html">support page</a>. We will acknowledge receipt of your request and respond within forty-five (45) days. We may extend our response period by an additional forty-five (45) days where necessary, in which case we will notify you of the extension within the initial forty-five (45) day period. We may need to verify your identity prior to processing your request, and we reserve the right to decline requests that we cannot verify or that are subject to a lawful exception.</p>
+
+      <h3>Categories of personal information collected in the preceding twelve (12) months</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Category (Cal. Civ. Code § 1798.140)</th><th>Examples</th><th>Collected</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Identifiers</td>
+              <td>Apple ID, email address, user account ID</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Financial information</td>
+              <td>Transaction data, account metadata (only if bank connection feature is used)</td>
+              <td>Only if bank connected</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We do not sell personal information and have not done so in the preceding twelve (12) months. We do not share personal information for purposes of cross-context behavioral advertising.</p>
+    </div>
+
+    <!-- 14. Nevada Residents -->
+    <div class="section">
+      <h2>14. Notice to Nevada Residents</h2>
+      <p>Pursuant to Nevada Revised Statutes Chapter 603A, Nevada residents have the right to opt out of the sale of certain personally identifiable information to third parties for monetary consideration. We do not sell personally identifiable information as defined under Nevada law, and we do not anticipate doing so. If you are a Nevada resident and have questions regarding this disclosure, please contact us through our <a href="support.html">support page</a>.</p>
+    </div>
+
+    <!-- 15. Other U.S. State Residents -->
+    <div class="section">
+      <h2>15. Notice to Other U.S. State Residents</h2>
+      <p>A number of additional U.S. states have enacted comprehensive consumer privacy legislation that may afford residents of those states rights with respect to their personal information that are similar to or broader than those described elsewhere in this Privacy Policy. These states include, without limitation: Colorado (Colorado Privacy Act), Connecticut (Connecticut Data Privacy Act), Virginia (Virginia Consumer Data Protection Act), Texas (Texas Data Privacy and Security Act), Oregon (Oregon Consumer Privacy Act), Montana (Montana Consumer Data Privacy Act), Iowa (Iowa Consumer Data Protection Act), Delaware (Delaware Personal Data Privacy Act), New Hampshire (New Hampshire Privacy Act), New Jersey (New Jersey Data Privacy Act), Minnesota (Minnesota Consumer Data Privacy Act), Maryland (Maryland Online Data Privacy Act), Nebraska (Nebraska Data Privacy Act), and others as additional laws take effect.</p>
+      <p>The specific rights and obligations under each such law vary and are subject to exceptions and limitations. Generally, however, residents of these states may have rights that include the right to access, correct, delete, and obtain a portable copy of their personal information, as well as the right to opt out of any sale of personal information or processing of personal information for purposes of targeted advertising or profiling that produces legal or similarly significant effects.</p>
+      <p>We do not sell personal information, and we do not engage in targeted advertising or profiling of users. To the extent you wish to exercise any privacy right available to you under the law of your state of residence, please contact us through our <a href="support.html">support page</a>. We will respond to all verified requests within the timeframe prescribed by the applicable state law.</p>
+    </div>
+
+    <!-- 16. International Users -->
+    <div class="section">
+      <h2>16. International Users</h2>
+      <p>The Service is operated from the United States, and our servers and infrastructure are located in the United States. If you access or use the Service from a jurisdiction outside of the United States, please be aware that your personal information will be transferred to, stored in, and processed in the United States. The data protection and privacy laws of the United States may differ from those of your home country and may not afford the same level of protection. By using the Service from outside the United States, you acknowledge and consent to the transfer of your information to the United States and to the processing of your information in accordance with this Privacy Policy and applicable U.S. law.</p>
+    </div>
+
+    <!-- 17. Changes to This Policy -->
+    <div class="section">
+      <h2>17. Changes to This Privacy Policy</h2>
+      <p>We reserve the right to modify or update this Privacy Policy at any time in our sole discretion to reflect changes in our practices, the features of the Service, applicable law, or for any other reason. All changes will be reflected in a revised Privacy Policy, which will be made available through the Service. The "Last Updated" date at the top of this Privacy Policy will indicate when the most recent modifications were made. Your continued use of the Service following the posting of any updated Privacy Policy constitutes your acceptance of the updated terms.</p>
+    </div>
+
+    <!-- 18. Contact Us -->
+    <div class="section">
+      <h2>18. Contact Us</h2>
+      <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us through our <a href="support.html">support page</a>.</p>
+    </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>© 2026 of deep origin LLC</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

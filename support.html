@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — balancebook</title>
+  <meta name="description" content="Support for balancebook. Find answers to common questions or send us a message." />
+  <meta name="theme-color" content="#f8f8f5" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0f1720;
+      --body: #4d5966;
+      --muted: #6d7783;
+      --line: rgba(15, 23, 32, 0.1);
+      --line-soft: rgba(15, 23, 32, 0.06);
+      --surface: rgba(255, 255, 255, 0.84);
+      --bg: #f8f8f5;
+      --accent: #236846;
+      --accent-soft: rgba(35, 104, 70, 0.08);
+      --shadow-sm: 0 6px 18px rgba(15, 23, 32, 0.05);
+      --shadow-md: 0 18px 44px rgba(15, 23, 32, 0.08);
+      --max: 1120px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #edf2f7;
+        --body: #b5c0cb;
+        --muted: #8f9baa;
+        --line: rgba(255, 255, 255, 0.1);
+        --line-soft: rgba(255, 255, 255, 0.06);
+        --surface: rgba(17, 24, 31, 0.88);
+        --bg: #0d1217;
+        --accent: #6abb8e;
+        --accent-soft: rgba(106, 187, 142, 0.12);
+        --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.24);
+        --shadow-md: 0 20px 52px rgba(0, 0, 0, 0.34);
+      }
+    }
+
+    html { scroll-behavior: smooth; color-scheme: light dark; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.24), transparent 34%),
+        linear-gradient(90deg, rgba(201, 92, 78, 0.09) 0%, rgba(248, 248, 245, 0) 42%, rgba(41, 113, 77, 0.09) 100%),
+        linear-gradient(180deg, #f6f4f1 0%, #f8f8f5 24%, #fbfbf9 100%);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background:
+          radial-gradient(circle at 12% 0%, rgba(201, 92, 78, 0.18), transparent 32%),
+          radial-gradient(circle at 88% 0%, rgba(41, 113, 77, 0.18), transparent 32%),
+          linear-gradient(90deg, rgba(201, 92, 78, 0.07) 0%, rgba(13, 18, 23, 0) 42%, rgba(41, 113, 77, 0.07) 100%),
+          linear-gradient(180deg, #0d1217 0%, #10161c 24%, #121920 100%);
+      }
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+      background: linear-gradient(180deg, rgba(246, 244, 241, 0.82), rgba(248, 248, 245, 0.46));
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(15, 23, 32, 0.05);
+    }
+
+    .nav-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 12px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.2));
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 12px 28px rgba(15, 23, 32, 0.08);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      box-shadow: 0 8px 20px rgba(15, 23, 32, 0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--body);
+      transition: color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--ink); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      background: #0f1720;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 12px 24px rgba(15, 23, 32, 0.14);
+    }
+
+    .page {
+      padding: 72px 0 96px;
+    }
+
+    .hero {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--accent);
+      border: 1px solid rgba(35, 104, 70, 0.12);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.04;
+      letter-spacing: -0.028em;
+      font-weight: 500;
+      margin-bottom: 16px;
+      max-width: 12ch;
+    }
+
+    .hero p {
+      max-width: 42rem;
+      font-size: 18px;
+      line-height: 1.58;
+      color: var(--body);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq h2,
+    .contact h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .contact > p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.34);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.65;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    #success-banner {
+      display: none;
+      background: var(--accent-soft);
+      border: 1px solid rgba(35, 104, 70, 0.22);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 24px;
+    }
+
+    #success-banner p {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      font-size: 15px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(35, 104, 70, 0.4);
+      box-shadow: 0 0 0 4px rgba(35, 104, 70, 0.08);
+    }
+
+    textarea { resize: vertical; min-height: 140px; }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f1720;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(15, 23, 32, 0.14);
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .support-notes {
+      display: grid;
+      gap: 14px;
+    }
+
+    .note-card {
+      padding: 20px 22px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .note-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .note-card p {
+      font-size: 14px;
+      color: var(--body);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 36px;
+      background: rgba(255, 255, 255, 0.56);
+    }
+
+    .footer-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      nav {
+        background: linear-gradient(180deg, rgba(12, 18, 24, 0.84), rgba(12, 18, 24, 0.5));
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-inner {
+        background: linear-gradient(180deg, rgba(22, 30, 38, 0.66), rgba(22, 30, 38, 0.42));
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 28px rgba(0, 0, 0, 0.24);
+      }
+
+      .eyebrow,
+      .panel,
+      .note-card {
+        background: rgba(17, 24, 31, 0.9);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .faq-item,
+      input, select, textarea {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.08);
+      }
+
+      footer {
+        background: rgba(10, 15, 20, 0.78);
+        border-top-color: rgba(255, 255, 255, 0.06);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; }
+      .page { padding: 56px 0 72px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 10px 14px; }
+      .panel { padding: 22px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="brand" href="index.html">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        balancebook
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#screens">App</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <a class="nav-cta" href="index.html">Back</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <div class="shell">
+      <div class="hero">
+        <div class="eyebrow">Support</div>
+        <h1>Get help with balancebook.</h1>
+        <p>Find answers to common questions, troubleshoot billing or restore issues, or send us a message if you need help with the app.</p>
+      </div>
+
+      <div class="layout">
+        <div class="panel faq">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How do I back up my data?
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">Pro subscribers can export a full backup via Settings → Export Data → Entire Ledger. This creates a JSON file you can store anywhere. Cloud backup also keeps your data available across your devices.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              How do I restore a backup?
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">Go to Settings → Import Data and select your backup file. A new ledger will be created automatically with all your imported data. You can then rename it and set it as your default ledger.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Can I cancel my Pro subscription?
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">Yes. Go to your iPhone Settings → Apple ID → Subscriptions → balancebook and tap Cancel Subscription. Your Pro access continues until the end of the current billing period.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              I upgraded to Pro but features are still locked.
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">Go to Settings → Plans and tap "Restore Purchases". If the issue persists, try force-quitting the app and reopening it. Contact us if it still isn't resolved.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              Is my data private?
+              <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">Yes. Your data is associated only with your account and is not shared with or sold to third parties.</div>
+          </div>
+        </div>
+
+        <div class="support-notes">
+          <div class="panel contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>Can't find what you're looking for? Send us a message and we'll get back to you.</p>
+
+            <div id="success-banner">
+              <p>Message sent — we'll get back to you within 1–2 business days.</p>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="c16b9b72-831e-4088-801c-f1b1017e6779">
+              <input type="hidden" name="subject" value="balancebook Support Request">
+              <input type="hidden" name="redirect" value="https://balancebook.app/support.html?success=true#contact">
+              <input type="checkbox" name="botcheck" style="display:none;">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+              <div class="form-group">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option value="bug">Bug report</option>
+                  <option value="feature">Feature request</option>
+                  <option value="billing">Billing / subscription</option>
+                  <option value="data">Data & privacy</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Describe your issue or question..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Send Message</button>
+              <p class="form-note">We typically respond within 1–2 business days.</p>
+            </form>
+          </div>
+
+          <div class="note-card">
+            <h3>Billing and subscriptions</h3>
+            <p>For refund requests, Apple handles billing directly through in-app purchases. Subscription management is available in your Apple ID settings.</p>
+          </div>
+
+          <div class="note-card">
+            <h3>Data and privacy</h3>
+            <p>If your question is about privacy practices or legal terms, use the updated pages linked below for the current website versions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>© 2026 of deep origin LLC</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+    if (new URLSearchParams(window.location.search).get('success') === 'true') {
+      document.getElementById('success-banner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
