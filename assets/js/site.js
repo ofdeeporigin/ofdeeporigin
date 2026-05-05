@@ -296,3 +296,26 @@
   var url = 'url("data:image/svg+xml;utf8,' + encodeURIComponent(svg) + '")';
   document.documentElement.style.setProperty('--lace-mask', url);
 })();
+
+// ---------- theme icon swap ----------
+// Picks data-light-src or data-dark-src based on the resolved data-theme on
+// <html>, so explicit toggles win over @media (prefers-color-scheme: dark).
+(function () {
+  function applyThemeIcons() {
+    var mode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var icons = document.querySelectorAll('[data-theme-icon]');
+    for (var i = 0; i < icons.length; i++) {
+      var src = icons[i].getAttribute('data-' + mode + '-src');
+      if (src) icons[i].src = src;
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyThemeIcons);
+  } else {
+    applyThemeIcons();
+  }
+  new MutationObserver(applyThemeIcons).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
+})();
