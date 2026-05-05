@@ -295,6 +295,29 @@
       border-color: rgba(255, 255, 255, 0.08);
     }
 
+    :root[data-theme="light"] .eyebrow {
+      background: rgba(255, 255, 255, 0.68);
+      border-color: rgba(35, 104, 70, 0.12);
+    }
+
+    :root[data-theme="light"] .panel,
+    :root[data-theme="light"] .note-card {
+      background: var(--surface);
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .faq-item {
+      background: rgba(255, 255, 255, 0.34);
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] input,
+    :root[data-theme="light"] select,
+    :root[data-theme="light"] textarea {
+      background: rgba(255, 255, 255, 0.52);
+      border-color: var(--line);
+    }
+
     @media (max-width: 960px) {
       .layout { grid-template-columns: 1fr; }
       .page { padding: 56px 0 72px; }

@@ -337,6 +337,7 @@ body { isolation: isolate; }
 }
 
 :root[data-theme="dark"] .lace-backdrop__ink { opacity: 0.55; }
+:root[data-theme="light"] .lace-backdrop__ink { opacity: 0.75; }
 
 /* ---------- Mobile responsive (shared elements only) ---------- */
 
