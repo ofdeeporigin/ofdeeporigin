@@ -10,9 +10,10 @@
     (function () {
       let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       try {
-        const savedMode = window.localStorage.getItem('balancebookDisplayMode');
+        const savedMode = window.sessionStorage.getItem('balancebookDisplayMode');
         if (savedMode === 'dark' || savedMode === 'light') mode = savedMode;
       } catch (_) {}
+      try { window.localStorage.removeItem('balancebookDisplayMode'); } catch (_) {}
       document.documentElement.setAttribute('data-theme', mode);
       const themeColorMeta = document.querySelector('meta[name="theme-color"]');
       if (themeColorMeta) themeColorMeta.setAttribute('content', mode === 'dark' ? '#0d1217' : '#f8f8f5');

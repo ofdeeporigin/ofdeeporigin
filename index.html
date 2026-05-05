@@ -10,9 +10,10 @@
     (function () {
       let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       try {
-        const savedMode = window.localStorage.getItem('balancebookDisplayMode');
+        const savedMode = window.sessionStorage.getItem('balancebookDisplayMode');
         if (savedMode === 'dark' || savedMode === 'light') mode = savedMode;
       } catch (_) {}
+      try { window.localStorage.removeItem('balancebookDisplayMode'); } catch (_) {}
       document.documentElement.setAttribute('data-theme', mode);
       const themeColorMeta = document.querySelector('meta[name="theme-color"]');
       if (themeColorMeta) themeColorMeta.setAttribute('content', mode === 'dark' ? '#0d1217' : '#f8f8f5');
@@ -1537,7 +1538,7 @@
       let isZoomed = false;
       const savedMode = (() => {
         try {
-          return window.localStorage.getItem('balancebookDisplayMode');
+          return window.sessionStorage.getItem('balancebookDisplayMode');
         } catch (_) {
           return null;
         }
@@ -1558,7 +1559,7 @@
         if (modeCurrentLabel) modeCurrentLabel.textContent = mode === 'dark' ? 'Dark' : 'Light';
         if (themeColorMeta) themeColorMeta.setAttribute('content', mode === 'dark' ? '#0d1217' : '#f8f8f5');
         try {
-          window.localStorage.setItem('balancebookDisplayMode', mode);
+          window.sessionStorage.setItem('balancebookDisplayMode', mode);
         } catch (_) {}
 
         triggers.forEach((trigger) => {
