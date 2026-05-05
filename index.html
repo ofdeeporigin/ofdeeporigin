@@ -375,6 +375,15 @@
       max-width: 720px;
     }
 
+    .screens-head .section-title {
+      max-width: none;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .screens-head .section-title { white-space: normal; }
+    }
+
     .screenshot-mode-toggle {
       display: inline-flex;
       align-items: center;
@@ -1279,7 +1288,7 @@
     <div class="shell">
       <div class="section-head screens-head">
         <div class="section-eyebrow">App</div>
-        <h2 class="section-title">A screenshot is worth 1,000 words.</h2>
+        <h2 class="section-title">A screenshot is worth a 1,000&nbsp;words.</h2>
         <p class="section-lede">Add an entry, review the month, scan categories, then check budgets or cash flow.</p>
         <label class="screenshot-mode-toggle" data-screenshot-toggle data-active-mode="dark">
           <input id="screenshot-mode-switch" type="checkbox" role="switch" aria-label="Use dark mode" checked />
