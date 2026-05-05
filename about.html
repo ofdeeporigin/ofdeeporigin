@@ -3,121 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>of deep origin</title>
-  <meta name="description" content="of deep origin LLC" />
+  <meta name="description" content="balancebook is a private personal finance tracker for iPhone, made by of deep origin LLC." />
+  <title>About — balancebook</title>
+  <meta name="theme-color" content="#f8f8f5" />
+  <script>
+    (function () {
+      let mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      try {
+        const savedMode = window.localStorage.getItem('balancebookDisplayMode');
+        if (savedMode === 'dark' || savedMode === 'light') mode = savedMode;
+      } catch (_) {}
+      document.documentElement.setAttribute('data-theme', mode);
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeColorMeta) themeColorMeta.setAttribute('content', mode === 'dark' ? '#0d1217' : '#f8f8f5');
+    }());
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f0f0f;
-      color: #ffffff;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      padding: 48px 56px;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 40px 0 0;
-    }
-
-    h1 {
-      font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-      font-size: clamp(80px, 14vw, 180px);
-      font-weight: 300;
-      text-transform: uppercase;
-      letter-spacing: -0.02em;
-      line-height: 0.85;
-    }
-
-    h1 em {
-    }
-    h1 span {
-      display: block;
-    }
-    .text-wrapper {
-      position: relative;
-      display: inline-block;
-      animation: breathe 30s ease-in-out infinite;
-      transform-origin: left top;
-      -webkit-box-reflect: below 8px linear-gradient(transparent, rgba(0,0,0,0.5));
-    }
-    .gradient-text, .black-text {
-      display: inline-block;
-      padding-top: 0.3em;
-      padding-bottom: 0.3em;
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #ffd9a0, #ff9500, #ff4500, #ff2050, #cc0088, #cc0066, #8800ff, #5500aa, #ff9500, #ffd9a0);
-      background-size: 300% 300%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      position: relative;
-      z-index: 0;
-      filter: drop-shadow(0 0 12px rgba(136, 0, 255, 0.3)) drop-shadow(0 0 28px rgba(204, 0, 136, 0.12));
-      animation: gradientFlow 180s ease infinite;
-    }
-    .black-text {
-      position: absolute;
-      top: 1px;
-      left: 2px;
-      color: #0f0f0f;
-      z-index: 1;
-      user-select: none;
-    }
-
-    @keyframes breathe {
-      0%, 100% { transform: scale(1); }
-      50%       { transform: scale(1.012, 1.008); }
-    }
-
-    @keyframes gradientFlow {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    footer {
-      font-size: 11px;
-      font-weight: 300;
-      color: #333333;
-      letter-spacing: 0.04em;
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 36px 28px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="stylesheet" href="assets/css/legal.css" />
 </head>
 <body>
+  <div class="lace-backdrop" aria-hidden="true">
+    <div class="lace-backdrop__ink"></div>
+  </div>
+  <script src="assets/js/site.js"></script>
+  
 
-<main>
-    <h1>
-      <div class="text-wrapper">
-        <div class="black-text" aria-hidden="true">
-          <span style="padding-left: 0;">of</span>
-          <span style="padding-left: 0.5em;">deep</span>
-          <span style="padding-left: 1em;">origin</span>
-        </div>
-        <div class="gradient-text">
-          <span style="padding-left: 0;">of</span>
-          <span style="padding-left: 0.5em;">deep</span>
-          <span style="padding-left: 1em;">origin</span>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>balancebook</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+      <a href="#" class="nav-cta">Download</a>
+    </div>
+  </nav>
+
+  <main class="legal-page">
+    <div class="shell">
+      <div class="legal-card">
+        <div class="content">
+
+    <div class="page-header">
+      <h1>About</h1>
+      <div class="meta">
+        <span>balancebook by of deep origin LLC</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <p>balancebook is a personal finance tracker for iPhone, built for clarity, privacy, and daily use. Track your money by hand or auto-import transactions from your bank, set budgets that fit your life, and review your month at a glance — without spreadsheets, fiddly settings, or noise.</p>
+      <p>It's designed around the way people actually manage their money. Fast manual entry for the expenses you remember in the moment. Recurring entries for the things you'd rather not have to think about each month. Account syncing for visibility into where you stand. Shared ledgers for partners and households who track money together. Category trends and budget history so you can spot the places where things are drifting before they become a problem.</p>
+      <p>Keep your personal, household, and side-business finances in separate ledgers when you need that separation. Export your data anytime — it's yours. Stay private by default; there are no ads, no trackers, and we don't sell or share what you log.</p>
+    </div>
+
+    <div class="section">
+      <h2>Made by <em>of deep origin</em></h2>
+      <p>balancebook is made by <strong>of deep origin LLC</strong>, an independent software studio. We build small, considered tools that respect your time and your data.</p>
+    </div>
+
+    <div class="section">
+      <h2>Get in touch</h2>
+      <p>Have a question, found a bug, or want to share feedback? Reach out through our <a href="support.html">support page</a>.</p>
+    </div>
+
         </div>
       </div>
-    </h1>
+    </div>
   </main>
 
-  <footer>© 2026 of deep origin LLC</footer>
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <picture>
+          <source srcset="assets/AppIcon-iOS-Dark-512x512@1x.png" media="(prefers-color-scheme: dark)" />
+          <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" />
+        </picture>
+        <span>© 2026 balancebook by of deep origin LLC</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </footer>
 
 </body>
 </html>
