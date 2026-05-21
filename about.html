@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ42V03KC6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Consent Mode v2 — default everything to denied. The cookie
+    // banner (assets/js/consent.js) flips analytics_storage to
+    // granted when the user accepts; until then GA4 only sends
+    // cookieless pings. Prior accepts are read from localStorage so
+    // the analytics fires on the same page load as the decision.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      if (localStorage.getItem('balancebookCookieConsent') === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (_) {}
+
+    gtag('config', 'G-QJ42V03KC6');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="balancebook is a private personal finance tracker for iPhone, made by of deep origin LLC." />
   <title>About — balancebook</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#f8f8f5" />
   <script>
     (function () {
@@ -21,7 +50,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
   <link rel="stylesheet" href="assets/css/legal.css" />
 </head>
@@ -35,7 +64,6 @@
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" data-theme-icon data-light-src="assets/AppLogo-iOS-Default-512x512@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-512x512@1x.png" />
         <span>balancebook</span>
       </a>
       <ul class="nav-links">
@@ -84,7 +112,7 @@
   <footer>
     <div class="shell footer-inner">
       <div class="footer-brand">
-        <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" data-theme-icon data-light-src="assets/AppLogo-iOS-Default-512x512@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-512x512@1x.png" />
+        <img src="assets/AppIcon-iOS-Default-1024x1024@1x.png" alt="" data-theme-icon data-light-src="assets/AppIcon-iOS-Default-1024x1024@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-1024x1024@1x.png" />
         <span>© 2026 balancebook by of deep origin LLC</span>
       </div>
       <ul class="footer-links">
@@ -92,9 +120,27 @@
         <li><a href="support.html">Support</a></li>
         <li><a href="privacy.html">Privacy</a></li>
         <li><a href="terms.html">Terms</a></li>
+        <li><a href="#" data-cookie-open>Cookie preferences</a></li>
       </ul>
     </div>
   </footer>
 
+
+  <!-- Cookie consent banner. Hidden until consent.js shows it on first
+       visit; user choice persists in localStorage. -->
+  <aside class="cookie-banner" id="cookieBanner" hidden>
+    <button type="button" class="cookie-banner-close" data-cookie-action="dismiss" aria-label="Close cookie banner">&times;</button>
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <strong>Cookies &amp; analytics</strong>
+        <p>This site uses Google Analytics to understand how visitors find and use the marketing pages. See our <a href="privacy.html#cookies">privacy policy</a> for more info.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" data-cookie-action="essential">Essentials only</button>
+        <button type="button" data-cookie-action="accept" class="primary">Accept all</button>
+      </div>
+    </div>
+  </aside>
+  <script src="assets/js/consent.js" defer></script>
 </body>
 </html>
