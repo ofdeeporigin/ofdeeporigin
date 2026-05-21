@@ -1,9 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QJ42V03KC6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Consent Mode v2 — default everything to denied. The cookie
+    // banner (assets/js/consent.js) flips analytics_storage to
+    // granted when the user accepts; until then GA4 only sends
+    // cookieless pings. Prior accepts are read from localStorage so
+    // the analytics fires on the same page load as the decision.
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+    try {
+      if (localStorage.getItem('balancebookCookieConsent') === 'granted') {
+        gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      }
+    } catch (_) {}
+
+    gtag('config', 'G-QJ42V03KC6');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — balancebook</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <meta name="theme-color" content="#f8f8f5" />
   <script>
     (function () {
@@ -20,7 +49,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/site.css" />
   <link rel="stylesheet" href="assets/css/legal.css" />
 </head>
@@ -34,7 +63,6 @@
   <nav>
     <div class="nav-inner">
       <a href="index.html" class="brand">
-        <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" data-theme-icon data-light-src="assets/AppLogo-iOS-Default-512x512@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-512x512@1x.png" />
         <span>balancebook</span>
       </a>
       <ul class="nav-links">
@@ -56,7 +84,7 @@
       <h1>Privacy Policy</h1>
       <div class="meta">
         <span>Effective April 4, 2026</span>
-        <span>Last updated April 4, 2026</span>
+        <span>Last updated May 20, 2026</span>
       </div>
     </div>
 
@@ -78,7 +106,7 @@
         <li><strong>Financial entries</strong> — expense and income amounts, dates, notes, and categories that you enter manually into the Service</li>
         <li><strong>Budget information</strong> — budget names, amounts, and recurrence settings that you configure within the Service</li>
         <li><strong>Tags</strong> — custom labels that you create and assign to entries</li>
-        <li><strong>Account information</strong> — your name and email address, to the extent provided through Sign in with Apple during account creation</li>
+        <li><strong>Account information</strong> — your name and email address, provided either through Sign in with Apple or through email and password registration during account creation</li>
         <li><strong>Support correspondence</strong> — the content of messages, inquiries, or other communications you submit to us through our support channels</li>
       </ul>
       <p>We use this information solely to provide, operate, and improve the Service as described in Section 2 of this Privacy Policy.</p>
@@ -101,7 +129,6 @@
         <li>Social Security Numbers, tax identification numbers, or government-issued identification numbers or documents</li>
         <li>Precise or approximate geographic location data</li>
         <li>Third-party advertising identifiers, behavioral analytics SDKs, or tracking pixels of any kind</li>
-        <li>Browser cookies or web-based tracking technologies (the Service is a native iOS application and does not engage in web-based data collection)</li>
         <li>Health information, biometric data, or any data derived from physical characteristics</li>
       </ul>
     </div>
@@ -140,7 +167,7 @@
           <tbody>
             <tr>
               <td>Google Cloud</td>
-              <td>User authentication, cloud database infrastructure, serverless computing functions</td>
+              <td>User authentication (including email and password sign-in), cloud database infrastructure, serverless computing functions</td>
               <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">View</a></td>
             </tr>
             <tr>
@@ -150,7 +177,7 @@
             </tr>
             <tr>
               <td>Apple (Sign in with Apple)</td>
-              <td>User account authentication</td>
+              <td>Optional user authentication when you choose to sign in with your Apple Account</td>
               <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">View</a></td>
             </tr>
           </tbody>
@@ -295,7 +322,7 @@
         <li>Multi-factor authentication protecting administrative access to all production systems</li>
         <li>Regular application of security updates and patches to all systems used in the operation of the Service</li>
       </ul>
-      <p>You are responsible for maintaining the confidentiality and security of your Apple ID credentials and your device. You should not share your account credentials with any third party. If you have reason to believe that your account has been compromised or that unauthorized access to your account has occurred, please notify us immediately through our <a href="support.html">support page</a>.</p>
+      <p>You are responsible for maintaining the confidentiality and security of your account credentials (whether an Apple Account used for Sign in with Apple, or an email and password) and your device. You should not share your account credentials with any third party. If you have reason to believe that your account has been compromised or that unauthorized access to your account has occurred, please notify us immediately through our <a href="support.html">support page</a>.</p>
       <p>We wish to be transparent that no method of data transmission over the internet and no method of electronic data storage can be guaranteed to be completely secure. While we are committed to using commercially reasonable measures to protect your personal information, we cannot warrant or guarantee the absolute security of any information you transmit to us or that we store on your behalf.</p>
     </div>
 
@@ -308,12 +335,23 @@
     <!-- 12. Third-Party Services -->
     <div class="section">
       <h2>12. Third-Party Services</h2>
-      <p>The Service integrates with or relies upon third-party products and services, including Plaid, Google Cloud, and Apple's Sign in with Apple authentication service. Your use of features that involve these third-party services may result in the collection, use, and disclosure of your information by those third parties, in addition to our own collection described in this Privacy Policy. Such collection, use, and disclosure by third parties is governed by the respective privacy policies of those third parties, not by this Privacy Policy. We are not responsible for the privacy practices of any third party and encourage you to review the applicable privacy policy of any third-party service before using features that involve that service.</p>
+      <p>The Service integrates with or relies upon third-party products and services, including Plaid, Google Cloud (which provides our authentication, database, and serverless infrastructure, and handles email and password sign-in), and Apple's Sign in with Apple authentication service (used when you choose to sign in with your Apple Account). Your use of features that involve these third-party services may result in the collection, use, and disclosure of your information by those third parties, in addition to our own collection described in this Privacy Policy. Such collection, use, and disclosure by third parties is governed by the respective privacy policies of those third parties, not by this Privacy Policy. We are not responsible for the privacy practices of any third party and encourage you to review the applicable privacy policy of any third-party service before using features that involve that service.</p>
     </div>
 
-    <!-- 13. California Residents -->
+
+    <!-- 13. Cookies and Web Analytics -->
+    <div id="cookies"></div>
     <div class="section">
-      <h2>13. Notice to California Residents</h2>
+      <h2>13. Cookies and Web Analytics on the Marketing Website</h2>
+      <p>This Privacy Policy applies primarily to the Service, which is a native iOS application that does not use cookies or perform web-based tracking of any kind. Our marketing website at <a href="https://balancebook.app">balancebook.app</a>, however, uses a small number of cookies and analytics technologies that are limited to the website and never have access to data within the Service or to your authenticated balancebook account.</p>
+      <p><strong>Google Analytics 4.</strong> The marketing website uses Google Analytics 4 ("GA4"), provided by Google LLC, to understand how visitors find and interact with the website. GA4 collects information such as pages viewed, referring website, approximate country and region, device type, browser, and time spent on the website. GA4 sets first-party cookies on your browser and may share aggregated data with Google for analytics reporting. GA4 does not have access to any data within the balancebook iOS application. For more information about how Google uses data collected through GA4, please refer to Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
+      <p><strong>Functional storage.</strong> The marketing website uses your browser's session storage to remember your preferred display mode (light or dark) for the duration of a tab visit. This preference is stored locally on your device and is not transmitted to us.</p>
+      <p><strong>Your choices.</strong> You may control or block cookies through your browser settings. You may also opt out of GA4 specifically by installing the official <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>, by enabling "Do Not Track" or "Global Privacy Control" signals in your browser, or by blocking <code>analytics.google.com</code> at the network level. None of these actions affect your use of the balancebook iOS application.</p>
+    </div>
+
+    <!-- 14. California Residents -->
+    <div class="section">
+      <h2>14. Notice to California Residents</h2>
       <p>If you are a resident of the State of California, you are entitled to certain additional rights with respect to your personal information under the California Consumer Privacy Act of 2018, as amended by the California Privacy Rights Act of 2020 (collectively, "CCPA/CPRA"). The following additional disclosures are provided pursuant to those laws:</p>
       <ul>
         <li><strong>Right to Know</strong> — You have the right to request that we disclose to you the categories and specific pieces of personal information we have collected about you, the categories of sources from which such information was collected, the business or commercial purposes for which such information was collected or disclosed, and the categories of third parties to whom such information was disclosed.</li>
@@ -334,7 +372,7 @@
           <tbody>
             <tr>
               <td>Identifiers</td>
-              <td>Apple ID, email address, user account ID</td>
+              <td>Apple Account identifier (when Sign in with Apple is used), email address, user account ID</td>
               <td>Yes</td>
             </tr>
             <tr>
@@ -348,35 +386,35 @@
       <p>We do not sell personal information and have not done so in the preceding twelve (12) months. We do not share personal information for purposes of cross-context behavioral advertising.</p>
     </div>
 
-    <!-- 14. Nevada Residents -->
+    <!-- 15. Nevada Residents -->
     <div class="section">
-      <h2>14. Notice to Nevada Residents</h2>
+      <h2>15. Notice to Nevada Residents</h2>
       <p>Pursuant to Nevada Revised Statutes Chapter 603A, Nevada residents have the right to opt out of the sale of certain personally identifiable information to third parties for monetary consideration. We do not sell personally identifiable information as defined under Nevada law, and we do not anticipate doing so. If you are a Nevada resident and have questions regarding this disclosure, please contact us through our <a href="support.html">support page</a>.</p>
     </div>
 
-    <!-- 15. Other U.S. State Residents -->
+    <!-- 16. Other U.S. State Residents -->
     <div class="section">
-      <h2>15. Notice to Other U.S. State Residents</h2>
+      <h2>16. Notice to Other U.S. State Residents</h2>
       <p>A number of additional U.S. states have enacted comprehensive consumer privacy legislation that may afford residents of those states rights with respect to their personal information that are similar to or broader than those described elsewhere in this Privacy Policy. These states include, without limitation: Colorado (Colorado Privacy Act), Connecticut (Connecticut Data Privacy Act), Virginia (Virginia Consumer Data Protection Act), Texas (Texas Data Privacy and Security Act), Oregon (Oregon Consumer Privacy Act), Montana (Montana Consumer Data Privacy Act), Iowa (Iowa Consumer Data Protection Act), Delaware (Delaware Personal Data Privacy Act), New Hampshire (New Hampshire Privacy Act), New Jersey (New Jersey Data Privacy Act), Minnesota (Minnesota Consumer Data Privacy Act), Maryland (Maryland Online Data Privacy Act), Nebraska (Nebraska Data Privacy Act), and others as additional laws take effect.</p>
       <p>The specific rights and obligations under each such law vary and are subject to exceptions and limitations. Generally, however, residents of these states may have rights that include the right to access, correct, delete, and obtain a portable copy of their personal information, as well as the right to opt out of any sale of personal information or processing of personal information for purposes of targeted advertising or profiling that produces legal or similarly significant effects.</p>
       <p>We do not sell personal information, and we do not engage in targeted advertising or profiling of users. To the extent you wish to exercise any privacy right available to you under the law of your state of residence, please contact us through our <a href="support.html">support page</a>. We will respond to all verified requests within the timeframe prescribed by the applicable state law.</p>
     </div>
 
-    <!-- 16. International Users -->
+    <!-- 17. International Users -->
     <div class="section">
-      <h2>16. International Users</h2>
+      <h2>17. International Users</h2>
       <p>The Service is operated from the United States, and our servers and infrastructure are located in the United States. If you access or use the Service from a jurisdiction outside of the United States, please be aware that your personal information will be transferred to, stored in, and processed in the United States. The data protection and privacy laws of the United States may differ from those of your home country and may not afford the same level of protection. By using the Service from outside the United States, you acknowledge and consent to the transfer of your information to the United States and to the processing of your information in accordance with this Privacy Policy and applicable U.S. law.</p>
     </div>
 
-    <!-- 17. Changes to This Policy -->
+    <!-- 18. Changes to This Policy -->
     <div class="section">
-      <h2>17. Changes to This Privacy Policy</h2>
+      <h2>18. Changes to This Privacy Policy</h2>
       <p>We reserve the right to modify or update this Privacy Policy at any time in our sole discretion to reflect changes in our practices, the features of the Service, applicable law, or for any other reason. All changes will be reflected in a revised Privacy Policy, which will be made available through the Service. The "Last Updated" date at the top of this Privacy Policy will indicate when the most recent modifications were made. Your continued use of the Service following the posting of any updated Privacy Policy constitutes your acceptance of the updated terms.</p>
     </div>
 
-    <!-- 18. Contact Us -->
+    <!-- 19. Contact Us -->
     <div class="section">
-      <h2>18. Contact Us</h2>
+      <h2>19. Contact Us</h2>
       <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us through our <a href="support.html">support page</a>.</p>
     </div>
 
@@ -388,7 +426,7 @@
   <footer>
     <div class="shell footer-inner">
       <div class="footer-brand">
-        <img src="assets/AppLogo-iOS-Default-512x512@1x.png" alt="" data-theme-icon data-light-src="assets/AppLogo-iOS-Default-512x512@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-512x512@1x.png" />
+        <img src="assets/AppIcon-iOS-Default-1024x1024@1x.png" alt="" data-theme-icon data-light-src="assets/AppIcon-iOS-Default-1024x1024@1x.png" data-dark-src="assets/AppIcon-iOS-Dark-1024x1024@1x.png" />
         <span>© 2026 balancebook by of deep origin LLC</span>
       </div>
       <ul class="footer-links">
@@ -396,9 +434,27 @@
         <li><a href="support.html">Support</a></li>
         <li><a href="privacy.html">Privacy</a></li>
         <li><a href="terms.html">Terms</a></li>
+        <li><a href="#" data-cookie-open>Cookie preferences</a></li>
       </ul>
     </div>
   </footer>
 
+
+  <!-- Cookie consent banner. Hidden until consent.js shows it on first
+       visit; user choice persists in localStorage. -->
+  <aside class="cookie-banner" id="cookieBanner" hidden>
+    <button type="button" class="cookie-banner-close" data-cookie-action="dismiss" aria-label="Close cookie banner">&times;</button>
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <strong>Cookies &amp; analytics</strong>
+        <p>This site uses Google Analytics to understand how visitors find and use the marketing pages. See our <a href="privacy.html#cookies">privacy policy</a> for more info.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" data-cookie-action="essential">Essentials only</button>
+        <button type="button" data-cookie-action="accept" class="primary">Accept all</button>
+      </div>
+    </div>
+  </aside>
+  <script src="assets/js/consent.js" defer></script>
 </body>
 </html>

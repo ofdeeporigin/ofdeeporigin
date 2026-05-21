@@ -103,8 +103,9 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-weight: 600;
-  font-size: 16px;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
   letter-spacing: -0.01em;
   color: var(--ink);
 }
@@ -346,3 +347,93 @@ body { isolation: isolate; }
   .nav-inner { padding: 10px 14px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* Cookie consent banner — fixed bottom, theme-aware. Hidden by default
+   (the `hidden` attribute is honored by browsers); consent.js flips
+   it visible on first load if no decision exists in localStorage. */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--surface-strong);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -8px 24px rgba(15, 23, 32, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.cookie-banner-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.cookie-banner-close:hover { color: var(--ink); background: var(--line-soft); }
+.cookie-banner-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cookie-banner-text {
+  flex: 1 1 360px;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--body);
+}
+.cookie-banner-text strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.cookie-banner-text a {
+  color: inherit;
+  text-decoration: underline;
+}
+.cookie-banner-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cookie-banner-actions button {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cookie-banner-actions button.primary {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.cookie-banner-actions button:hover {
+  opacity: 0.88;
+}
+@media (max-width: 560px) {
+  .cookie-banner-inner { padding: 14px 16px; }
+  .cookie-banner-actions { width: 100%; }
+  .cookie-banner-actions button { flex: 1; }
+}
+
+/* Footer "Cookie preferences" link uses the standard footer-links
+   styling; nothing extra needed. */
