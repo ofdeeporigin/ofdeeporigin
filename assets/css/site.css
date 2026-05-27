@@ -326,8 +326,14 @@ body { isolation: isolate; }
   background-image: linear-gradient(135deg, #1d5a3c 0%, #236846 28%, #5a7a52 50%, #c95c4e 78%, #d97560 100%);
   -webkit-mask-image: var(--lace-mask, none);
           mask-image: var(--lace-mask, none);
-  -webkit-mask-size: 100% 100%;
-          mask-size: 100% 100%;
+  /* Stretch the mask to at least 1600px so narrow viewports don't compress
+     the lace curves into a dense scrunched pattern. On wider viewports
+     it stretches normally. Parent `.lace-backdrop` has overflow:hidden,
+     so the overflow on narrow screens is cropped (centered). */
+  -webkit-mask-size: max(100%, 1600px) 100%;
+          mask-size: max(100%, 1600px) 100%;
+  -webkit-mask-position: center;
+          mask-position: center;
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   opacity: 0.75;
